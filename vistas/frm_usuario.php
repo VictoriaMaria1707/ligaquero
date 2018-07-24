@@ -1,6 +1,20 @@
 <html>
+    <?php
+session_start();
+   if (isset($_SESSION['ROL']))
+ {
+ echo "si: ".$_SESSION['ROL'];
+ }
+else
+{
+    echo "nooooooooooooo".$_SESSION['ROL']." - ".$row['usuario'];
+       //  header('Location: ../vistas/frm_usuario.php');
+
+}
+    ?>
 <form id="form1" action="../acciones/guardar_usuario.php" method="post">
     <br><br><br>
+    
     &ensp;&ensp;&ensp; <label for="txt_nombre">Nombre</label>
     <input type="text" id="txt_nombre" name="txt_nombre" required/>
     <br><br>

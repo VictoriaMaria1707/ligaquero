@@ -13,7 +13,7 @@ protected $clave;
         $this ->conex="";
         $this -> db="";
         $this -> servidor= "localhost";
-        $this -> base= "Ligaquero";
+        $this -> base= "ligaquero";
         $this -> usuario= "root";
         $this -> clave= "";
     }
