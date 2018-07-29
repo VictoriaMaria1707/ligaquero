@@ -31,6 +31,9 @@ class categoria
       //  $row=mysqli_fetch_assoc($result);
         return $result;   
     }
+    
+    
+    
 }
 
 ?>

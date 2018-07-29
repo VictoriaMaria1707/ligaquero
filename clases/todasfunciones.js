@@ -18,7 +18,6 @@ var xmlhttp=false;
 
 function cargar_categoria(codigo_serie)
 {
-    alert(codigo_serie);
 combo_categoria=document.getElementById("txt_categoria");	
 ajax= nuevoAjax();
 ajax.open("GET","../acciones/cargar_categoria.php?codigo="+codigo_serie,true);
@@ -32,6 +31,28 @@ ajax.onreadystatechange=function() {
  	   if(ajax.readyState==4)
 		{
 		combo_categoria.innerHTML= ajax.responseText;
+		}	
+	}
+}
+ajax.send(null);
+}
+
+function parentescos(lugarnaci)
+{
+    alert(lugarnaci);
+parentescos=document.getElementById("txt_lugarnaci");	
+ajax= nuevoAjax();
+ajax.open("GET","../acciones/parentesco.php?codigo="+lugarnaci,true);
+ajax.onreadystatechange=function() {
+	if(ajax.readyState==1)
+  	{
+		
+	}
+	else
+	{
+ 	   if(ajax.readyState==4)
+		{
+		parentescos.innerHTML= ajax.responseText;
 		}	
 	}
 }

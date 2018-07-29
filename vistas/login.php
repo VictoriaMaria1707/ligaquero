@@ -11,7 +11,7 @@
     <input type="text" id="txt_usuario" name="txt_usuario" required/>
     <br><br>
     <label for="txt_clave">Clave</label>
-    <input type="text" id="txt_clave" name="txt_clave" required/>
+    <input type="password" id="txt_clave" name="txt_clave" required/>
 	<br><br>
 	<input type="submit" name="Submit" value="LOGIN">
 </form>

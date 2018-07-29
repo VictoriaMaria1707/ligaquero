@@ -1,36 +1,93 @@
 <html>
-    <?php
+    <head>
+        <title>
+            Menus
+        </title>
+        <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+        <script src="../jquery-3.1.1.min.js"></script>
+        <script src="../bootstrap/js/bootstrap.js"></script>
+	   <title>Menu </title>
+    </head>
+    <?php   
 session_start();
-   if (isset($_SESSION['ROL']))
+if (isset($_SESSION['ROL']))
  {
- echo "si: ".$_SESSION['ROL'];
+    if ($_SESSION['ROL'] == 'secretaria'){?>
+        <h3>Bienvenida <?PHP echo $_SESSION['usuario'].' - '.$_SESSION['ROL'] ?> </h3>
+          <ul class="nav nav-tabs">
+             <li ><a  href="../vistas/frm_usuario.php">Usuarios</a>  </li>
+            <li><a href="../vistas/frm_jugador.php">Jugadores</a></li>
+          <li><a href="../vistas/login.php">Cerrar Sesion</a></li>
+
+          </ul>
+    <?php }else{ ?>
+    <h3>Bienvenida <?PHP echo $_SESSION['usuario'].' - '.$_SESSION['ROL'] ?> </h3>
+          <ul class="nav nav-tabs">
+             <li><a href="../vistas/login.php">Cerrar Sesion</a></li>
+          </ul>
+    <?php }
  }
 else
 {
-    echo "nooooooooooooo".$_SESSION['ROL']." - ".$row['usuario'];
-       //  header('Location: ../vistas/frm_usuario.php');
-
+     header('Location: ../vistas/login.php');
 }
     ?>
-<form id="form1" action="../acciones/guardar_usuario.php" method="post">
-    <br><br><br>
-    
-    &ensp;&ensp;&ensp; <label for="txt_nombre">Nombre</label>
-    <input type="text" id="txt_nombre" name="txt_nombre" required/>
-    <br><br>
-    &ensp;&ensp;&ensp;<label for="txt_usuario">Usuarios</label>
-    <input type="text" id="txt_usuario" name="txt_usuario" required/>
-    <br><br>
-    &ensp;&ensp;&ensp;<label for="txt_clave">Clave</label>
-    <input type="text" id="txt_clave" name="txt_clave" required/>
-<br><br>
-     &ensp;&ensp;&ensp;<button id="btn_insertar" type="submit">Insertar</button>
-</form>
-    <br><br><br>
-    <div id="lista">
+    <body>
+      <h1>Usuarios</h1>
+        
+        <div id="lista">
         
     <?php 
         include_once("../acciones/l_usuarios.php");
         ?>
+</div>
+        
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nuevo">Nuevo Usuario</button>
+
+<!-- Modal -->
+<div class="modal fade" id="nuevo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          
+          
+        <h4 class="modal-title" id="myModalLabel">Nuevo Usuario</h4>
+      </div>
+      <div class="modal-body">
+        <form id="form1" action="../acciones/guardar_usuario.php" method="post">    
+        <table>
+            <tbody>
+                <tr>
+                    <th><label for="txt_usuario">Uusario</label> </th>
+                    <th><input type="text" id="txt_usuario" name="txt_usuario" required /></th>
+                </tr>
+                
+        <tr><th><label for="txt_clave">Clave</label> </th>       
+        <th><input type="password" id="txt_clave" name="txt_clave" required /> </th>       </tr>
+                
+            <tr><th><label for="txt_rol">Rol</label></th>      
+        <th> <select id="txt_rol" name="txt_rol" required>
+            <option>--Seleccione--</option>
+            <option>usuario</option>
+            <option>secretaria</option>
+            </select></th>       </tr>
+    
+            </tbody>
+            </table>
+      
+          <div class="modal-footer">
+              <button id="btn_insertar" type="submit">Insertar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>       
+          </div>
+       
+          </form>
+           </div>
     </div>
+  </div>
+</div>
+
+    </body>
+
+
 </html>
