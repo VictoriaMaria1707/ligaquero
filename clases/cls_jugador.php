@@ -67,17 +67,17 @@ class jugador
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia=sprintf("select * from usuarios where idusuario ='%s'",$codigo);
+        $sentencia=sprintf("select * from jugadores inner join generos on generos.idgenero = jugadores.idgenero where idjugador ='%s'",$codigo);
         $result= mysqli_query($conexion,$sentencia);
         $row=mysqli_fetch_assoc($result);
         return $row;   
     }
      
-    public function actualizar($usuario,$clave,$rol,$codigo)
+    public function actualizar($cedula, $nombre1, $nombre2, $apellido1, $apellido2, $direccion, $lugarnacimi, $parentesto, $lugarnaciparen, $telefono, $celular, $correo, $idgenero, $codigo)
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia=sprintf("update usuarios set usuario='%s',clave='%s',rol='%s' where idusuario='%s'",$usuario,$clave,$rol,$codigo);
+        $sentencia=sprintf("update jugadores set cedula='%s', nombre1='%s', nombre2='%s', apellido1='%s', apellido2='%s', direccion='%s', lugarnacimi='%s', parentesto='%s', lugarnaciparen='%s', telefono='%s', celular='%s', correo='%s', idgenero='%s' where idjugador='%s'",$cedula, $nombre1, $nombre2, $apellido1, $apellido2, $direccion, $lugarnacimi, $parentesto, $lugarnaciparen, $telefono, $celular, $correo, $idgenero, $codigo);
         $result= mysqli_query($conexion,$sentencia);
         return $result;  
     }

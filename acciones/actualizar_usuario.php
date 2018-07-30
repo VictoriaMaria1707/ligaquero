@@ -9,8 +9,7 @@ $_SESSION['ROL']= $row['rol'];
 }else{
     if ($usu)
     {
-        
-        header('Location: ../vistas/frm_usuario.php');
+        header('Location: ../vistas/menu.php');
         
     }
     else

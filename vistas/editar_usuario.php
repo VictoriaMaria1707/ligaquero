@@ -16,7 +16,8 @@ if (isset($_SESSION['ROL']))
         <h3>Bienvenida <?PHP echo $_SESSION['usuario'].' - '.$_SESSION['ROL']  ?> </h3>
           <ul class="nav nav-tabs">
              <li ><a  href="../vistas/frm_usuario.php">Usuarios</a>  </li>
-<li><a href="../vistas/frm_jugador.php">Jugadores</a></li>
+              <li><a href="../vistas/frm_jugador.php">Jugadores</a></li>
+            <li><a href="../vistas/frm_equipo.php">Equipo</a></li>
           <li><a href="../vistas/login.php">Cerrar Sesion</a></li>
 
           </ul>

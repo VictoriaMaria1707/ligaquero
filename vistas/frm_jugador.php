@@ -17,6 +17,7 @@ if (isset($_SESSION['ROL']))
           <ul class="nav nav-tabs">
             <li ><a href="../vistas/frm_usuario.php">Usuarios</a></li>
             <li><a href="../vistas/frm_jugador.php">Jugadores</a></li>
+            <li><a href="../vistas/frm_equipo.php">Equipo</a></li>              
           <li><a href="../vistas/login.php">Cerrar Sesion</a></li>
           </ul>
     <?php }else{ ?>
@@ -41,7 +42,7 @@ else
         ?>
 </div>
         
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nuevo">Nuevo Jugadores</button>
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nuevo">Nuevo Jugador</button>
 
 <!-- Modal -->
 <div class="modal fade" id="nuevo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

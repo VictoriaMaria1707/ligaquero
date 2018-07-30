@@ -46,7 +46,7 @@ class usuario
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia=sprintf("select * from usuarios where idusuario ='%s'",$codigo);
+        $sentencia=sprintf("select idusuario,usuario,clave,rol from usuarios where idusuario ='%s'",$codigo);
         $result= mysqli_query($conexion,$sentencia);
         $row=mysqli_fetch_assoc($result);
         return $row;   
