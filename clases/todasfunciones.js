@@ -37,24 +37,5 @@ ajax.onreadystatechange=function() {
 ajax.send(null);
 }
 
-function parentescos(lugarnaci)
-{
-    alert(lugarnaci);
-parentescos=document.getElementById("txt_lugarnaci");	
-ajax= nuevoAjax();
-ajax.open("GET","../acciones/parentesco.php?codigo="+lugarnaci,true);
-ajax.onreadystatechange=function() {
-	if(ajax.readyState==1)
-  	{
-		
-	}
-	else
-	{
- 	   if(ajax.readyState==4)
-		{
-		parentescos.innerHTML= ajax.responseText;
-		}	
-	}
-}
-ajax.send(null);
-}
+
+

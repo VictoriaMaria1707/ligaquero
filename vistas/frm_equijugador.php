@@ -34,16 +34,21 @@ else
 }
     ?>
     <body>
-      <h1>Equipos</h1>
+      <?php 
+        include_once "../clases/cls_equipo.php";
+        $equi= new equipo();
+        $ider=$equi->consultar_dato($_GET['valor']);
+        $resu=$equi->transacciones();
+    ?>
+      <h1>Equipo <?php echo $ider['nombreequipo'];?></h1>
         
         <div id="lista">
         
     <?php 
-        include_once("../acciones/l_equipo.php");
+        include_once("../acciones/l_equijugador.php");
         ?>
 </div>
-        
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nuevo">Nuevo Equipo</button>
+         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nuevo">Nuevo Jugador</button>
 
 <!-- Modal -->
 <div class="modal fade" id="nuevo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -53,57 +58,32 @@ else
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           
           
-        <h4 class="modal-title" id="myModalLabel">Nuevo Equipo</h4>
+        <h4 class="modal-title" id="myModalLabel">Nuevo Jugador</h4>
       </div>
       <div class="modal-body">
-        <form id="form1" action="../acciones/guardar_equipo.php" method="post">    
+        <form id="form1" action="../acciones/guardar_equijugador.php" method="post">    
 <table>
     <tbody>
-        <tr>
-            <th><label for="txt_nomequipo">Nombre del equipo</label> </th>
-            <th><input type="text" id="txt_nomequipo" name="txt_nomequipo" required /></th>
-        </tr>
-
-        <tr>
-            <th><label for="txt_numjuga">Numero de jugadores </label> </th>     
-            <th><input type="text" id="txt_numjuga" name="txt_numjuga" required /> </th> 
-        </tr>
-
-         <tr>
-            <th><label for="txt_nomdue">Nombre del dueño del equipo </label> </th>
-            <th><input type="text" id="txt_nomdue" name="txt_nomdue" required /></th>
-        </tr>
-
-        <tr>
-            <th><label for="txt_nomentre">Nombre del entrenador</label> </th>
-            <th><input type="text" id="txt_nomentre" name="txt_nomentre" required /></th>
-        </tr>
-    <?php 
-        include_once "../clases/clase_categorias.php";
-        $cate= new categoria();
-        $resu=$cate->combo(); 
-    ?>
-    <tr><th> <label for="txt_serie">Serie</label> </th>    
-        <th><select id="txt_serie" name="txt_serie" required onchange="cargar_categoria(this.value);">
+<h1>
+    <input type="hidden" id="txt_equipi" name="txt_equipi" value="<?php echo $ider['idequipo'];?>"/></h1>
+        
+    <tr><th> <label for="txt_jugador">Jugadores</label> </th>    
+        <th><select id="txt_jugador" name="txt_jugador" required>
             <option value="">--Seleccione--</option>
         <?php
-                while($row1=mysqli_fetch_assoc($resu))
+            
+                while($row=mysqli_fetch_assoc($resu))
             {
                   
             ?>
-        <option value="<?php echo $row1['idserie'];?>"><?php echo $row1['nombreserie'];?></option>
+        <option value="<?php echo $row['idjugador'];?>"><?php echo $row['nombre1']." ".$row['apellido1'];?></option>
         
         <?php
                 }
             ?>
+            
         </select> </th></tr>
 
-   <tr><th> <label for="txt_categoria">Nombre de categoria</label></th>
-       <th><select id="txt_categoria" name="txt_categoria" required onchange="idcategorias(this.value);">
-            <option value="">--Seleccione--</option>
-      
-        </select></th> </tr>
-        
     </tbody>
 </table>
       
@@ -117,8 +97,6 @@ else
     </div>
   </div>
 </div>
-
+        
     </body>
-
-
 </html>

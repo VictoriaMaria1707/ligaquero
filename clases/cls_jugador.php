@@ -41,7 +41,7 @@ class jugador
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia=sprintf("Insert into jugadores (cedula, nombre1, nombre2, apellido1, apellido2, direccion, lugarnacimi, parentesto, lugarnaciparen, telefono, celular, correo, idgenero) values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",$cedula, $nombre1, $nombre2, $apellido1, $apellido2, $direccion, $lugarnacimi, $parentesto, $lugarnaciparen, $telefono, $celular, $correo, $idgenero);
+        $sentencia=sprintf("Insert into jugadores (cedula, nombre1, nombre2, apellido1, apellido2, direccion, lugarnacimi, parentesto, lugarnaciparen, telefono, celular, correo, idgenero,esta) values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','1')",$cedula, $nombre1, $nombre2, $apellido1, $apellido2, $direccion, $lugarnacimi, $parentesto, $lugarnaciparen, $telefono, $celular, $correo, $idgenero);
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
     }

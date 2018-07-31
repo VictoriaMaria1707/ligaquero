@@ -46,7 +46,7 @@ else
                 <th></th><th><input type="text" id="txt_idusuario" name="txt_idusuario" value="<?php echo $row["idusuario"];?>" /></th>
             </tr>
             <tr>
-                <th><label for="txt_usuario">Uusario</label> </th>
+                <th><label for="txt_usuario">Usuario</label> </th>
                 <th><input type="text" id="txt_usuario" name="txt_usuario" required value="<?php echo $row["usuario"];?>"/></th>
             </tr>
             <tr>
