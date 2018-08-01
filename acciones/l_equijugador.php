@@ -7,13 +7,13 @@ $result=$equi->consultartransacciones(($_GET['valor']));
  echo "'<link rel='stylesheet' type='text/css' href='../bootstrap/css/bootstrap.css'>";
     echo "<script src='../jquery-3.1.1.min.js'></script>";
      echo "<script src='../bootstrap/js/bootstrap.js'></script>";
+echo "<a href='../vistas/menu.php' >Menu</a>";
 echo"<table class='table'>
 <thead class='thead-dark'>
         <tr>
             <th>Nombre del equipo</th>
             <th>Nombre del jugador</th>
             <th>estado</th>
-            <th>Modificar</th>
         </tr></thead>";
         
 while($row=mysqli_fetch_assoc($result)){
@@ -25,8 +25,8 @@ echo "<tr>
             }else{
                 echo "<td>Desactivo</td>";
             }
-echo "  <td align='center'><a href='../vistas/editar_jugador.php?valor=".$row["idtransferencia"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
-        </tr>";
+    
 }
 echo "</table>";
+
 ?>

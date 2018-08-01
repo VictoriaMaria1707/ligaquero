@@ -1,4 +1,5 @@
 <?php
+session_start();
 //para quitar la notice
 include_once "../clases/cls_equipo.php";
 $equi= new equipo();
@@ -14,10 +15,24 @@ echo"<table class='table'>
             <th>Numero de jugadores</th>
             <th>Nombre del dueño</th>
             <th>Nombre del entrenador</th>
-            <th>categoria</th>
-            <th>Ingresar jugadores</th>
-            <th>Modificar</th>
+            <th>categoria</th>";
+
+if (isset($_SESSION['ROL']))
+ {
+    if ($_SESSION['ROL'] == 'secretaria'){
+        echo "<th>Ingresar jugadores</th>
+            <th>Modificar equipo</th>
         </tr></thead>";
+    }else{ 
+        echo "<th>Ver jugadores</th>
+        </tr></thead>";
+    }
+ }
+else
+{
+     header('Location: ../vistas/login.php');
+}           
+            
         
 while($row=mysqli_fetch_assoc($result)){
 echo "<tr>
@@ -25,10 +40,23 @@ echo "<tr>
             <td>".$row["Numjugadores"]."</td>
             <td>".$row["nombredueno"]."</td>
             <td>".$row["nombreentrenador"]."</td>
-            <td>".$row["nombre_cate"]."</td>
-            <td align='center'><a href='../vistas/frm_equijugador.php?valor=".$row["idequipo"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
+            <td>".$row["nombre_cate"]."</td>";
+    
+if (isset($_SESSION['ROL']))
+ {
+    if ($_SESSION['ROL'] == 'secretaria'){
+        echo "<td align='center'><a href='../vistas/frm_equijugador.php?valor=".$row["idequipo"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
             <td align='center'><a href='../vistas/editar_equipo.php?valor=".$row["idequipo"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
         </tr>";
+    }else{ 
+        echo "<td align='center'><a href='../acciones/l_equijugador.php?valor=".$row["idequipo"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>";
+    }
+ }
+else
+{
+     header('Location: ../vistas/login.php');
+}
+          
 }
 echo "</table>";
 ?>

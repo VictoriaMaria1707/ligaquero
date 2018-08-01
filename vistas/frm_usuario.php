@@ -17,7 +17,10 @@ if (isset($_SESSION['ROL']))
           <ul class="nav nav-tabs">
              <li ><a  href="../vistas/frm_usuario.php">Usuarios</a>  </li>
             <li><a href="../vistas/frm_jugador.php">Jugadores</a></li>
-            <li><a href="../vistas/frm_equipo.php">Equipo</a></li>              
+            <li><a href="../vistas/frm_equipo.php">Equipo</a></li> 
+              <li><a href="../vistas/frm_arbitro.php">Arbitro</a></li>
+        <li><a href="../vistas/frm_canchas.php">Canchas</a></li>
+              <li><a href="../vistas/frm_calendario.php">Calendario</a></li>
           <li><a href="../vistas/login.php">Cerrar Sesion</a></li>
 
           </ul>

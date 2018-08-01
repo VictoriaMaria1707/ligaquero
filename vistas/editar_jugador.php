@@ -18,6 +18,7 @@ if (isset($_SESSION['ROL']))
              <li ><a  href="../vistas/frm_usuario.php">Usuarios</a>  </li>
 <li><a href="../vistas/frm_jugador.php">Jugadores</a></li>
             <li><a href="../vistas/frm_equipo.php">Equipo</a></li>
+              <li><a href="../vistas/frm_arbitro.php">Arbitro</a></li>
           <li><a href="../vistas/login.php">Cerrar Sesion</a></li>
 
           </ul>
@@ -43,65 +44,65 @@ else
     <table>
         <tbody>
                 <tr>
-                    <th></th><th><input type="text" id="txt_idjugador" name="txt_idjugador" value="<?php echo $row["idjugador"];?>" /></th>
+                    <th></th><th><input type="hidden" id="txt_idjugador" name="txt_idjugador" value="<?php echo $row["idjugador"];?>" /></th>
                 </tr>
                 <tr>
                     <th><label for="txt_cedula">Cedula</label> </th>
-                    <th><input type="text" id="txt_cedula" name="txt_cedula" required value="<?php echo $row["cedula"];?>" /></th>
+                    <th><input type="text" id="txt_cedula" name="txt_cedula" required value="<?php echo $row["cedula"];?>" maxlength="10" /></th>
                 </tr>
                 
                 <tr>
                     <th><label for="txt_nombre1">Primer Nombre</label> </th>     
-                    <th><input type="text" id="txt_nombre1" name="txt_nombre1" required value="<?php echo $row["nombre1"];?>" /> </th> 
+                    <th><input type="text" id="txt_nombre1" name="txt_nombre1" required value="<?php echo $row["nombre1"];?>" maxlength="20" /> </th> 
                 </tr>
                 
                  <tr>
                     <th><label for="txt_nombre2">Segundo Nombre</label> </th>
-                    <th><input type="text" id="txt_nombre2" name="txt_nombre2" required value="<?php echo $row["nombre2"];?>" /></th>
+                    <th><input type="text" id="txt_nombre2" name="txt_nombre2" required value="<?php echo $row["nombre2"];?>" maxlength="20" /></th>
                 </tr>
 
                 <tr>
                     <th><label for="txt_apellido1">Primer Apellido</label> </th>
-                    <th><input type="text" id="txt_apellido1" name="txt_apellido1" required value="<?php echo $row["apellido1"];?>"/></th>
+                    <th><input type="text" id="txt_apellido1" name="txt_apellido1" required value="<?php echo $row["apellido1"];?>" maxlength="20"/></th>
                 </tr>
                 
                 <tr>
                     <th><label for="txt_apellido2">Segundo Apellido</label> </th>
-                    <th><input type="text" id="txt_apellido2" name="txt_apellido2" required value="<?php echo $row["apellido2"];?>"/></th>
+                    <th><input type="text" id="txt_apellido2" name="txt_apellido2" required value="<?php echo $row["apellido2"];?>" maxlength="20"/></th>
                 </tr>
                 
                 <tr>
                     <th><label for="txt_direccion">Direccion</label> </th>
-                    <th><input type="text" id="txt_direccion" name="txt_direccion" required value="<?php echo $row["direccion"];?>" /></th>
+                    <th><input type="text" id="txt_direccion" name="txt_direccion" required value="<?php echo $row["direccion"];?>" maxlength="20"/></th>
                 </tr>
                 
                 <tr>
                     <th><label for="txt_telefono">Telefono</label> </th>
-                    <th><input type="text" id="txt_telefono" name="txt_telefono" required value="<?php echo $row["telefono"];?>" /></th>
+                    <th><input type="text" id="txt_telefono" name="txt_telefono" required value="<?php echo $row["telefono"];?>" maxlength="10"/></th>
                 </tr>
                 
                 <tr>
                     <th><label for="txt_celular">Celular</label> </th>
-                    <th><input type="text" id="txt_celular" name="txt_celular" required value="<?php echo $row["celular"];?>" /></th>
+                    <th><input type="text" id="txt_celular" name="txt_celular" required value="<?php echo $row["celular"];?>" maxlength="9"/></th>
                 </tr>
                 
                 <tr>
                     <th><label for="txt_correo">Correo</label> </th>
-                    <th><input type="text" id="txt_correo" name="txt_correo" required value="<?php echo $row["correo"];?>" /></th>
+                    <th><input type="text" id="txt_correo" name="txt_correo" required value="<?php echo $row["correo"];?>" maxlength="30"/></th>
                 </tr>
                 
                 <tr>
                     <th><label for="txt_lugarnaci">lugar de nacimiento</label> </th>
-                    <th><input type="text" id="txt_lugarnaci" name="txt_lugarnaci" required value="<?php echo $row["lugarnacimi"];?>"/></th>
+                    <th><input type="text" id="txt_lugarnaci" name="txt_lugarnaci" required value="<?php echo $row["lugarnacimi"];?>" maxlength="20" /></th>
                 </tr>
                <tr>
                   <th><label for='txt_parentesto'>Parentesto</label> </th>
-                  <th><input type='text' id='txt_parentesto' name='txt_parentesto' value="<?php echo $row["parentesto"];?>" /></th>
+                  <th><input type='text' id='txt_parentesto' name='txt_parentesto' value="<?php echo $row["parentesto"];?>" maxlength="20" /></th>
               </tr>
 
                 <tr>
                     <th><label for='txt_lugarnacipari'>lugar de nacimiento del pariente</label> </th>
-                    <th><input type='text' id='txt_lugarnacipari' name='txt_lugarnacipari' value="<?php echo $row["lugarnaciparen"];?>" /></th>
+                    <th><input type='text' id='txt_lugarnacipari' name='txt_lugarnacipari' value="<?php echo $row["lugarnaciparen"];?>" maxlength="20" /></th>
                 </tr> 
                 <tr>
                     <th><label for="txt_genero">Genero</label></th>      
