@@ -16,6 +16,10 @@ echo"<table class='table'>
             <th>Temporada</th>
             <th>Cancha</th>
             <th>Arbitro</th>
+            <th>Faltas</th>
+            <th>Alineacion Equipo Uno</th>
+            <th>Alineacion Equipo Dos</th>
+            <th>Modificar</th>
         </tr></thead>";
         
 while($row=mysqli_fetch_assoc($result)){
@@ -25,7 +29,10 @@ echo "<tr>
             <td>".$row["idequipo2"]."</td>
             <td>".$row["nombre_temporada"]."</td>
             <td>".$row["nombre_cancha"]."</td>
-            <td>".$row["nombre"]."</td>
+            <td align='center'><a href='../vistas/frm_pitar.php?valor=".$row["idcalendario"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
+            <td align='center'><a href='../vistas/frm_faltas.php?valor=".$row["idcalendario"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
+            <td align='center'><a href='../vistas/frm_alineacion1.php?equipo1=".$row["idequipo1"]."&valor=".$row["idcalendario"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
+             <td align='center'><a href='../vistas/frm_alineacion2.php?equipo2=".$row["idequipo2"]."&valor=".$row["idcalendario"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
             <td align='center'><a href='../vistas/editar_calendario.php?valor=".$row["idcachas"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
         </tr>";
 }
