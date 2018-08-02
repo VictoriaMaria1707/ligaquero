@@ -91,7 +91,24 @@ class calendario
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia="SELECT * from calendarios inner join fechas on fechas.idfecha = calendarios.idfechas INNER join etapas on etapas.idetapa = calendarios.idetapas INNER JOIN equipo on equipo.idequipo = calendarios.idequipo1 INNER JOIN temporadas on temporadas.idtemporada = calendarios.idtemporadas INNER JOIN canchas on canchas.idcachas = calendarios.idcanchas";
+        $sentencia="SELECT * from calendarios inner join fechas on fechas.idfecha = calendarios.idfechas INNER join etapas on etapas.idetapa = calendarios.idetapas INNER JOIN equipo on equipo.idequipo = calendarios.idequipo1 INNER JOIN temporadas on temporadas.idtemporada = calendarios.idtemporadas INNER JOIN canchas on canchas.idcachas = calendarios.idcanchas";          
+        $result= mysqli_query($conexion,$sentencia);
+        return $result;  
+    }
+          public function consultarequipo1()
+    {
+       $conex= new conexion();
+        $conexion= $conex->conectar();
+        $sentencia="select equipo.nombreequipo from equipo where idequipo =( SELECT idequipo1 from calendarios)";          
+        $result= mysqli_query($conexion,$sentencia);
+        return $result;  
+    }
+    
+     public function consultarequipo2()
+    {
+       $conex= new conexion();
+        $conexion= $conex->conectar();
+        $sentencia="select equipo.nombreequipo from equipo where idequipo =( SELECT idequipo2 from calendarios)";          
         $result= mysqli_query($conexion,$sentencia);
         return $result;  
     }

@@ -6,35 +6,12 @@
         <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
         <script src="../jquery-3.1.1.min.js"></script>
         <script src="../bootstrap/js/bootstrap.js"></script>
+           <script src="../clases/todasfunciones.js"></script>
 	   <title>Menu </title>
     </head>
     <?php   
-session_start();
-if (isset($_SESSION['ROL']))
- {
-    if ($_SESSION['ROL'] == 'secretaria'){?>
-        <h3>Bienvenida <?PHP echo $_SESSION['usuario'].' - '.$_SESSION['ROL'] ?> </h3>
-          <ul class="nav nav-tabs">
-            <li ><a href="../vistas/frm_usuario.php">Usuarios</a></li>
-            <li><a href="../vistas/frm_jugador.php">Jugadores</a></li>
-            <li><a href="../vistas/frm_equipo.php">Equipo</a></li> 
-              <li><a href="../vistas/frm_arbitro.php">Arbitro</a></li>
-        <li><a href="../vistas/frm_canchas.php">Canchas</a></li>
-              <li><a href="../vistas/frm_calendario.php">Calendario</a></li>
-          <li><a href="../vistas/login.php">Cerrar Sesion</a></li>
-          </ul>
-    <?php }else{ ?>
-    <h3>Bienvenida <?PHP echo $_SESSION['usuario'].' - '.$_SESSION['ROL'] ?> </h3>
-        <ul class="nav nav-tabs">
-          <li><a href="../vistas/login.php">Cerrar Sesion</a></li>
-        </ul>
-    <?php }
- }
-else
-{
-     header('Location: ../vistas/login.php');
-}
-    ?>
+    include_once("../vistas/menu.php");
+ ?>
     <body>
       <h1>Jugadores</h1>
         
@@ -63,7 +40,7 @@ else
             <tbody>
                 <tr>
                     <th><label for="txt_cedula">Cedula</label> </th>
-                    <th><input type="text" id="txt_cedula" name="txt_cedula" required /></th>
+                    <th><input type="text" id="txt_cedula" name="txt_cedula" required onkeypress='return event.charCode >= 48 && event.charCode <= 57' onblur="validaNumericos(this.value);" maxlength="10" /></th>
                 </tr>
                 
                 <tr>
@@ -93,12 +70,12 @@ else
                 
                 <tr>
                     <th><label for="txt_telefono">Telefono</label> </th>
-                    <th><input type="text" id="txt_telefono" name="txt_telefono" required /></th>
+                    <th><input type="text" id="txt_telefono" name="txt_telefono" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required /></th>
                 </tr>
                 
                 <tr>
                     <th><label for="txt_celular">Celular</label> </th>
-                    <th><input type="text" id="txt_celular" name="txt_celular" required /></th>
+                    <th><input type="text" id="txt_celular" name="txt_celular" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required /></th>
                 </tr>
                 
                 <tr>
@@ -108,16 +85,16 @@ else
                 
                 <tr>
                     <th><label for="txt_lugarnaci">lugar de nacimiento</label> </th>
-                    <th><input type="text" id="txt_lugarnaci" name="txt_lugarnaci" required onchange="parentescos(this.value);" /></th>
+                    <th><input type="text" id="txt_lugarnaci" name="txt_lugarnaci" required onchange="lugarnaci(this.value);" /></th>
                 </tr>
                <tr>
                   <th><label for='txt_parentesto'>Parentesto</label> </th>
-                  <th><input type='text' id='txt_parentesto' name='txt_parentesto'  /></th>
+                  <th><input type='text' disabled id='txt_parentesto' name='txt_parentesto'  /></th>
               </tr>
 
                 <tr>
                     <th><label for='txt_lugarnacipari'>lugar de nacimiento del pariente</label> </th>
-                    <th><input type='text' id='txt_lugarnacipari' name='txt_lugarnacipari'  /></th>
+                    <th><input type='text' disabled id='txt_lugarnacipari' name='txt_lugarnacipari'  /></th>
                 </tr> 
                 <tr>
                     <th><label for="txt_genero">Genero</label></th>      

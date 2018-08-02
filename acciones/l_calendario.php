@@ -3,6 +3,8 @@
 include_once "../clases/cls_calendario.php";
 $cale= new calendario();
 $result=$cale->consultar();
+$result1=$cale->consultarequipo1();
+$result2=$cale->consultarequipo2();
 //Estructura de una tabla
  echo "'<link rel='stylesheet' type='text/css' href='../bootstrap/css/bootstrap.css'>";
     echo "<script src='../jquery-3.1.1.min.js'></script>";
@@ -22,12 +24,16 @@ echo"<table class='table'>
             <th>Modificar</th>
         </tr></thead>";
         
-while($row=mysqli_fetch_assoc($result)){
+while($row=mysqli_fetch_assoc($result) ){
 echo "<tr>
-            <td>".$row["fecha"]."</td>
-            <td>".$row["idequipo1"]."</td>
-            <td>".$row["idequipo2"]."</td>
-            <td>".$row["nombre_temporada"]."</td>
+            <td>".$row["fecha"]."</td>";
+            while($row1=mysqli_fetch_assoc($result1) ){
+           echo " <td>".$row1["nombreequipo"]."</td>";
+            }
+            while($row2=mysqli_fetch_assoc($result2) ){
+            echo "<td>".$row2["nombreequipo"]."</td>";
+            }
+            echo "<td>".$row["nombre_temporada"]."</td>
             <td>".$row["nombre_cancha"]."</td>
             <td align='center'><a href='../vistas/frm_pitar.php?valor=".$row["idcalendario"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
             <td align='center'><a href='../vistas/frm_faltas.php?valor=".$row["idcalendario"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>

@@ -1,10 +1,8 @@
 <?php
-session_start();
-//para quitar la notice
+
 include_once "../clases/cls_equipo.php";
 $equi= new equipo();
 $result=$equi->consultar();
-//Estructura de una tabla
  echo "'<link rel='stylesheet' type='text/css' href='../bootstrap/css/bootstrap.css'>";
     echo "<script src='../jquery-3.1.1.min.js'></script>";
      echo "<script src='../bootstrap/js/bootstrap.js'></script>";
@@ -16,7 +14,10 @@ echo"<table class='table'>
             <th>Nombre del dueño</th>
             <th>Nombre del entrenador</th>
             <th>categoria</th>";
-
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+}
 if (isset($_SESSION['ROL']))
  {
     if ($_SESSION['ROL'] == 'secretaria'){

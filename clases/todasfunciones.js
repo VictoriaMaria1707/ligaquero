@@ -37,5 +37,27 @@ ajax.onreadystatechange=function() {
 ajax.send(null);
 }
 
+function validaNumericos(valor){
+ for(i=0;i<valor.length;i++){
+     var code=valor.charCodeAt(i);
+         if(code<=48 || code>=57){          
+           inputtxt.value=""; 
+           return;
+         }    
+   }
+ 
+    
+function lugarnaci(valor){
 
+    if(valor == "Quero")
+    {
+        
+    }
+    else
+    {
+document.getElementById("txt_parentesto").style.visibility=true;
+document.getElementById("txt_lugarnacipari").style.visibility=true;
+    }
+    
+}
 
