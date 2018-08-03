@@ -10,6 +10,7 @@ class equipo
     protected $nombreentrenador;
     protected $idcategoria;
     protected $idjugador;
+    protected $idequipo;
          
     public function __construct(){
         $this->codigo="";
@@ -19,6 +20,7 @@ class equipo
         $this->nombreentrenador="";
         $this->idcategoria="";
          $this->idjugador="";
+        $this->idequipo="";
     }
     
     public function insert($nombreequipo, $Numjugadores, $nombredueno, $nombreentrenador, $idcategoria)
@@ -57,7 +59,22 @@ class equipo
         $result= mysqli_query($conexion,$sentencia);
         return $result;  
     }
-    
+     public function actualizarpas($idequipo,$codigo)
+    {
+       $conex= new conexion();
+        $conexion= $conex->conectar();
+        $sentencia=sprintf("UPDATE transferencias set idequipos = '%s' where idtransferencia='%s'",$nombreequipo, $Numjugadores, $nombredueno, $nombreentrenador, $idcategoria, $codigo);
+        $result= mysqli_query($conexion,$sentencia);
+        return $result;  
+    }
+     public function comboequipo()
+    {
+       $conex= new conexion();
+        $conexion= $conex->conectar();
+        $sentencia="select * from equipo";
+        $result= mysqli_query($conexion,$sentencia);
+        return $result;   
+    }
          public function transacciones()
     {
        $conex= new conexion();

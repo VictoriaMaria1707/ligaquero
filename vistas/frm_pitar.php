@@ -21,6 +21,15 @@
         $pita = new pitar();
         ?>
 </div>
+        <?php
+        if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+}
+if (isset($_SESSION['ROL']))
+ {
+    if ($_SESSION['ROL'] == 'secretaria'){
+        ?>  
   <form id="form1" action="../acciones/guardar_pitar.php" method="post">    
 <table>
     <tbody>
@@ -50,6 +59,14 @@
  <button id="btn_insertar" type="submit">Insertar</button>
   
           </form>
+        <?php
+        }else{ 
+    } }
+else
+{
+     header('Location: ../vistas/login.php');
+} 
+        ?>
 <div id="lista">
         
     <?php 

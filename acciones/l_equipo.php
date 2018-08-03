@@ -46,7 +46,7 @@ echo "<tr>
 if (isset($_SESSION['ROL']))
  {
     if ($_SESSION['ROL'] == 'secretaria'){
-        echo "<td align='center'><a href='../vistas/frm_equijugador.php?valor=".$row["idequipo"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
+        echo "<td align='center'><a href='../vistas/frm_equijugador.php?valor=".$row["idequipo"]."&categoria=".$row["nombre_cate"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
             <td align='center'><a href='../vistas/editar_equipo.php?valor=".$row["idequipo"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
         </tr>";
     }else{ 

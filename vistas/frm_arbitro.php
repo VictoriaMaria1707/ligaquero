@@ -20,7 +20,15 @@
         include_once("../acciones/l_arbitro.php");
         ?>
 </div>
-        
+         <?php
+        if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+}
+if (isset($_SESSION['ROL']))
+ {
+    if ($_SESSION['ROL'] == 'secretaria'){
+        ?> 
     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nuevo">Nuevo Arbitro</button>
 
 <!-- Modal -->
@@ -39,37 +47,37 @@
             <tbody>
                 <tr>
                     <th><label for="txt_cedula">Cedula</label> </th>
-                    <th><input type="text" id="txt_cedula" name="txt_cedula" required /></th>
+                    <th><input type="text" id="txt_cedula" name="txt_cedula" required onkeypress='return event.charCode >= 48 && event.charCode <= 57;' onblur="validaNumericos(this.value);" maxlength="10" /></th>
                 </tr>
                 
                 <tr>
                     <th><label for="txt_nombre"> Nombre</label> </th>     
-                    <th><input type="text" id="txt_nombre" name="txt_nombre" required /> </th> 
+                    <th><input type="text" id="txt_nombre" name="txt_nombre" required maxlength="30"/> </th> 
                 </tr>
                 
                  <tr>
                     <th><label for="txt_apellido">Apellido</label> </th>
-                    <th><input type="text" id="txt_apellido" name="txt_apellido" required /></th>
+                    <th><input type="text" id="txt_apellido" name="txt_apellido" required maxlength="30"/></th>
                 </tr>
 
                 <tr>
                     <th><label for="txt_direccion">Direccion</label> </th>
-                    <th><input type="text" id="txt_direccion" name="txt_direccion" required /></th>
+                    <th><input type="text" id="txt_direccion" name="txt_direccion" required maxlength="30"/></th>
                 </tr>
                 
                 <tr>
                     <th><label for="txt_telefono">Telefono</label> </th>
-                    <th><input type="text" id="txt_telefono" name="txt_telefono" required /></th>
+                    <th><input type="text" id="txt_telefono" name="txt_telefono" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onblur="validaNumericos(this.value);" required maxlength="9" /></th>
                 </tr>
                 
                 <tr>
                     <th><label for="txt_celular">Celular</label> </th>
-                    <th><input type="text" id="txt_celular" name="txt_celular" required /></th>
+                    <th><input type="text" id="txt_celular" name="txt_celular" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onblur="validaNumericos(this.value);" required maxlength="10" /></th>
                 </tr>
                 
                 <tr>
                     <th><label for="txt_correo">Correo</label> </th>
-                    <th><input type="text" id="txt_correo" name="txt_correo" required /></th>
+                    <th><input type="text" id="txt_correo" name="txt_correo" required maxlength="30"/></th>
                 </tr>
                 
             </tbody>
@@ -85,7 +93,14 @@
     </div>
   </div>
 </div>
-
+<?php
+        }else{ 
+    } }
+else
+{
+     header('Location: ../vistas/login.php');
+} 
+        ?>
     </body>
 
 

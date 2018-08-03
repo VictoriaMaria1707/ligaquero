@@ -21,8 +21,16 @@
         include_once("../acciones/l_equipo.php");
         ?>
 </div>
-        
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nuevo">Nuevo Equipo</button>
+    <?php
+        if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+}
+if (isset($_SESSION['ROL']))
+ {
+    if ($_SESSION['ROL'] == 'secretaria'){
+        ?>  
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nuevo">Nuevo Equipo</button>
 
 <!-- Modal -->
 <div class="modal fade" id="nuevo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -40,22 +48,22 @@
     <tbody>
         <tr>
             <th><label for="txt_nomequipo">Nombre del equipo</label> </th>
-            <th><input type="text" id="txt_nomequipo" name="txt_nomequipo" required /></th>
+            <th><input type="text" id="txt_nomequipo" name="txt_nomequipo" required maxlength="30"/></th>
         </tr>
 
         <tr>
             <th><label for="txt_numjuga">Numero de jugadores </label> </th>     
-            <th><input type="text" id="txt_numjuga" name="txt_numjuga" required /> </th> 
+            <th><input type="text" id="txt_numjuga" name="txt_numjuga" required maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57;' onblur="validaNumericos(this.value);"/> </th> 
         </tr>
 
          <tr>
             <th><label for="txt_nomdue">Nombre del dueño del equipo </label> </th>
-            <th><input type="text" id="txt_nomdue" name="txt_nomdue" required /></th>
+            <th><input type="text" id="txt_nomdue" name="txt_nomdue" required maxlength="30"/></th>
         </tr>
 
         <tr>
             <th><label for="txt_nomentre">Nombre del entrenador</label> </th>
-            <th><input type="text" id="txt_nomentre" name="txt_nomentre" required /></th>
+            <th><input type="text" id="txt_nomentre" name="txt_nomentre" required maxlength="30"/></th>
         </tr>
     <?php 
         include_once "../clases/clase_categorias.php";
@@ -96,7 +104,14 @@
     </div>
   </div>
 </div>
-
+<?php
+        }else{ 
+    } }
+else
+{
+     header('Location: ../vistas/login.php');
+} 
+        ?>
     </body>
 
 

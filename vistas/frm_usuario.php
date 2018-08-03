@@ -39,11 +39,11 @@
             <tbody>
                 <tr>
                     <th><label for="txt_usuario">Uusario</label> </th>
-                    <th><input type="text" id="txt_usuario" name="txt_usuario" required /></th>
+                    <th><input type="text" id="txt_usuario" name="txt_usuario" required maxlength="30"/></th>
                 </tr>
                 
         <tr><th><label for="txt_clave">Clave</label> </th>       
-        <th><input type="password" id="txt_clave" name="txt_clave" required /> </th>       </tr>
+        <th><input type="password" id="txt_clave" name="txt_clave" required maxlength="30"/> </th>       </tr>
                 
             <tr><th><label for="txt_rol">Rol</label></th>      
         <th> <select id="txt_rol" name="txt_rol" required>

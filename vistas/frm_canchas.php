@@ -20,7 +20,15 @@
         include_once("../acciones/l_cancha.php");
         ?>
 </div>
-        
+<?php
+        if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+}
+if (isset($_SESSION['ROL']))
+ {
+    if ($_SESSION['ROL'] == 'secretaria'){
+        ?>  
     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nuevo">Nueva Cancha</button>
 
 <!-- Modal -->
@@ -60,7 +68,14 @@
     </div>
   </div>
 </div>
-
+<?php
+        }else{ 
+    } }
+else
+{
+     header('Location: ../vistas/login.php');
+} 
+        ?>
     </body>
 
 

@@ -10,6 +10,9 @@
     </head>
     <?php   
     include_once("../vistas/menu.php");
+    include_once("../clases/cls_alimentacion.php");
+    $resi = new alimentacion();
+    $row1=$resi->fechass($_GET['valor']);
  ?>
     <body>
       <h1>Alineacion</h1>
@@ -17,9 +20,19 @@
         <div id="lista">
         
     <?php 
-        include_once("../acciones/l_alineacion1.php");
+        include_once("../acciones/l_alineacion2.php");
+        
         ?>
 </div>
+         <?php
+        if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+}
+if (isset($_SESSION['ROL']))
+ {
+    if ($_SESSION['ROL'] == 'secretaria'){
+        ?> 
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nuevo">Nuevo alineacion</button>
 
 <!-- Modal -->
@@ -47,20 +60,23 @@
             $result=$ali->combojugador2($valor);
             while($row=mysqli_fetch_assoc($result)){ ?>
             <option value="<?php echo $row['idjugador'];?>"><?php echo $row['nombre1'];?></option>
-            <?php }?>                           
-                </select></th>
+            <?php }?>  
+            </select></th>
         </tr>
         <tr><th>calendario</th>
-            <th><input type="text" id="txt_cale" name="txt_cale" required  maxlength="20" value="<?php echo $_GET['valor'];?>" maxlength="20" /></th>
+            <th><input type="date" id="txt_cale" name="txt_cale" required  maxlength="20" value="<?php echo $row1['fecha'] ;?>" maxlength="20" /></th>
         </tr>
 
         <tr>
             <th><label for="txt_numcami">Numero de camiseta</label> </th>     
-            <th><input type="text" id="txt_numcami" name="txt_numcami" required  maxlength="20" /> </th> 
+            <th><input type="text" id="txt_numcami" name="txt_numcami" required  maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onblur="validaNumericos(this.value);" /> </th> 
         </tr>
-
+        <tr>
+            <th><input type="hidden" id="txt_calen" name="txt_calen" required  maxlength="20" value="<?php echo $row1['idcalendario'] ;?>" maxlength="20" /></th>
+        </tr>
     </tbody>
-</table><div class="modal-footer">
+</table>
+    <div class="modal-footer">
               <button id="btn_insertar" type="submit">Insertar</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>       
           </div>
@@ -70,7 +86,13 @@
     </div>
   </div>
 </div>
+        <?php
+        }else{ 
+    } }
+else
+{
+     header('Location: ../vistas/login.php');
+} 
+        ?>
     </body>
-
-
 </html>

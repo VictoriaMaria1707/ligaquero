@@ -10,17 +10,41 @@ $result=$pitar->consultar();
 echo"<table class='table'>
 <thead class='thead-dark'>
         <tr>
-            <th>Calendario</th>
-            <th>Nombre del arbitro</th>
-            <th>Modificar</th>
-        </tr></thead>";
+            <th>Fecha</th>
+            <th>Nombre del arbitro</th>";
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+}
+if (isset($_SESSION['ROL']))
+ {
+    if ($_SESSION['ROL'] == 'secretaria'){
+         echo "    <th>Modificar</th>
+        </tr></thead>";}else{ 
+    }
+ }
+else
+{
+     header('Location: ../vistas/login.php');
+}   
         
 while($row=mysqli_fetch_assoc($result)){
 echo "<tr>
-            <td>".$row["idcalendarioss"]."</td>
-            <td>".$row["nombre"]."</td>
+            <td>".$row["fecha"]."</td>
+            <td>".$row["nombre"]."</td>";
+    
+if (isset($_SESSION['ROL']))
+ {
+    if ($_SESSION['ROL'] == 'secretaria'){
+        echo "
             <td align='center'><a href='../vistas/editar_pitar.php?valor=".$row["idcalearbi"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
-        </tr>";
+        </tr>";}else{        
+    }
+ }
+else
+{
+     header('Location: ../vistas/login.php');
+}
 }
 echo "</table>";
 ?>

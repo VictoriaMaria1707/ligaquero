@@ -13,21 +13,15 @@
     include_once("../vistas/menu.php");
  ?>
     <body>
-      <?php 
-        include_once "../clases/cls_equipo.php";
-        $equi= new equipo();
-        $ider=$equi->consultar_dato($_GET['valor']);
-        $resu=$equi->transacciones();
-    ?>
-      <h1>Equipo <?php echo $ider['nombreequipo'];?></h1>
+      <h1>Temporada</h1>
         
         <div id="lista">
         
     <?php 
-        include_once("../acciones/l_equijugador.php");
+        include_once("../acciones/l_temporada.php");
         ?>
 </div>
-<?php
+    <?php
         if(!isset($_SESSION)) 
     { 
         session_start(); 
@@ -35,8 +29,8 @@
 if (isset($_SESSION['ROL']))
  {
     if ($_SESSION['ROL'] == 'secretaria'){
-        ?>          
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nuevo">Nuevo Jugador</button>
+        ?>  
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nuevo">Nuevo Temporada</button>
 
 <!-- Modal -->
 <div class="modal fade" id="nuevo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -46,31 +40,16 @@ if (isset($_SESSION['ROL']))
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           
           
-        <h4 class="modal-title" id="myModalLabel">Nuevo Jugador</h4>
+        <h4 class="modal-title" id="myModalLabel">Nuevo Temporada</h4>
       </div>
       <div class="modal-body">
-        <form id="form1" action="../acciones/guardar_equijugador.php" method="post">    
+        <form id="form1" action="../acciones/guardar_temporada.php" method="post">    
 <table>
     <tbody>
-<h1>
-    <input type="hidden" id="txt_equipi" name="txt_equipi" value="<?php echo $ider['idequipo'];?>"/></h1>
-        
-    <tr><th> <label for="txt_jugador">Jugadores</label> </th>    
-        <th><select id="txt_jugador" name="txt_jugador" required>
-            <option value="">--Seleccione--</option>
-        <?php
-            
-                while($row=mysqli_fetch_assoc($resu))
-            {
-                  
-            ?>
-        <option value="<?php echo $row['idjugador'];?>"><?php echo $row['nombre1']." ".$row['apellido1'];?></option>
-        
-        <?php
-                }
-            ?>
-            
-        </select> </th></tr>
+        <tr>
+            <th><label for="txt_temporada">Temporada</label> </th>
+            <th><input type="text" id="txt_temporada" name="txt_temporada" required maxlength="30"/></th>
+        </tr>
 
     </tbody>
 </table>
@@ -92,6 +71,8 @@ else
 {
      header('Location: ../vistas/login.php');
 } 
-        ?>        
+        ?>
     </body>
+
+
 </html>

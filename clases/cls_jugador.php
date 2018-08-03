@@ -45,6 +45,15 @@ class jugador
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
     }
+     public function verificarcedula($cedula)
+    {
+       $conex= new conexion();
+        $conexion= $conex->conectar();
+        $sentencia=sprintf("select cedula from jugadores where cedula ='%s'",$cedula);
+        $result= mysqli_query($conexion,$sentencia);
+        $row=mysqli_fetch_assoc($result);
+        return $row;   
+    }
      public function combogenero()
     {
        $conex= new conexion();

@@ -20,59 +20,52 @@ class alimentacion
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia=sprintf("Insert into alineaciones (cedula, nombre1, nombre2) values('%s','%s','%s')",$idjugador, $idcalendario, $numerocami);
+        $sentencia=sprintf("Insert into alineaciones (idjugadorss, idcanlendario, numerocamiseta) values('%s','%s','%s')",$idjugador, $idcalendario, $numerocami);
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
     }
      
-    public function combojugador1($codigo)
+    public function combojugador1()
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia=sprintf("select * from jugadores inner join transferencias on transferencias.idjugadores = jugadores.idjugador where idequipos='%'",$codigo);
+        $sentencia=sprintf("select * from jugadores inner join transferencias on transferencias.idjugadores = jugadores.idjugador where idequipos=( SELECT idequipo1 from calendarios)");
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
     }
     
-    public function combojugador2($codigo)
+    public function combojugador2()
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia=sprintf("select * from jugadores inner join transferencias on transferencias.idjugadores = jugadores.idjugador where idequipos='%'",$codigo);
+        $sentencia=sprintf("select * from jugadores inner join transferencias on transferencias.idjugadores = jugadores.idjugador where idequipos=( SELECT idequipo2 from calendarios)");
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
     }
     
-     public function combotemporada()
+          public function fechass($codigo)
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia="select * from temporadas";
+        $sentencia=sprintf("select * from fechas inner join calendarios on fechas.idfecha = calendarios.idfechas where idcalendario ='%s'",$codigo);
         $result= mysqli_query($conexion,$sentencia);
-        return $result;   
-    }
-     public function combocanchas()
-    {
-       $conex= new conexion();
-        $conexion= $conex->conectar();
-        $sentencia="select * from canchas";
-        $result= mysqli_query($conexion,$sentencia);
-        return $result;   
-    }    
-     public function comboetapas()
-    {
-       $conex= new conexion();
-        $conexion= $conex->conectar();
-        $sentencia="select * from etapas";
-        $result= mysqli_query($conexion,$sentencia);
-        return $result;   
+        $row=mysqli_fetch_assoc($result);
+        return $row;   
     }  
     
-      public function consultar()
+      public function consultar1()
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia="SELECT * from calendarios inner join fechas on fechas.idfecha = calendarios.idfechas INNER join faltas on faltas.idcalendarios = calendarios.idcalendario INNER JOIN canchas on canchas.idcachas = calendarios.idcanchas inner JOIN marcadores on calendarios.idmarcadors = marcadores.idmarcador";
+        $sentencia="SELECT * from alineaciones INNER join jugadores on jugadores.idjugador = alineaciones.idjugadorss INNER JOIN calendarios on calendarios.idcalendario = alineaciones.idcanlendario INNER JOIN fechas on fechas.idfecha = calendarios.idfechas Where alineaciones.idequipo = calendarios.idequipo1 ";
+        $result= mysqli_query($conexion,$sentencia);
+        return $result;  
+    }
+    public function consultar2()
+    {
+       $conex= new conexion();
+        $conexion= $conex->conectar();
+        $sentencia="SELECT * from alineaciones INNER join jugadores on jugadores.idjugador = alineaciones.idjugadorss INNER JOIN calendarios on calendarios.idcalendario = alineaciones.idcanlendario INNER JOIN fechas on fechas.idfecha = calendarios.idfechas Where alineaciones.idequipo = calendarios.idequipo2 ";
         $result= mysqli_query($conexion,$sentencia);
         return $result;  
     }

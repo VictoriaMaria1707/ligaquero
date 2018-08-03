@@ -44,20 +44,50 @@ function validaNumericos(valor){
            inputtxt.value=""; 
            return;
          }    
-   }
+   }}
  
     
-function lugarnaci(valor){
+function lugarnaci(lug){
 
-    if(valor == "Quero")
+    if(lug == "Quero" || lug == "--Seleccione--")
     {
-        
+   document.getElementById("txt_parentesto").style.visibility="hidden";    document.getElementById("txt_parentest").style.visibility="hidden"; 
+document.getElementById("txt_lugarnacipari").style.visibility="hidden";    document.getElementById("txt_lugarnacipar").style.visibility="hidden";document.getElementById("btn_insertarjuga").style.visibility="visible";
+   
     }
     else
     {
-document.getElementById("txt_parentesto").style.visibility=true;
-document.getElementById("txt_lugarnacipari").style.visibility=true;
+ document.getElementById("txt_parentesto").style.visibility="visible";    document.getElementById("txt_parentest").style.visibility="visible";
+
+document.getElementById("btn_insertarjuga").style.visibility="hidden";
     }
     
 }
+
+function parent(paren){
+
+    if(paren == "--Seleccione--" )
+    {
+   document.getElementById("txt_lugarnacipari").style.visibility="hidden";    document.getElementById("txt_lugarnacipar").style.visibility="hidden";
+    document.getElementById("btn_insertarjuga").style.visibility="hidden";
+    }
+    else
+    {   document.getElementById("txt_lugarnacipari").style.visibility="visible";    document.getElementById("txt_lugarnacipar").style.visibility="visible";
+    }
+    
+}
+
+function lugarnacipar(lugpar){
+
+    if(lugpar == "Quero" )
+    {
+    document.getElementById("btn_insertarjuga").style.visibility="visible";
+    }
+    else
+    {
+    document.getElementById("btn_insertarjuga").style.visibility="hidden";
+    }
+    
+}
+
 

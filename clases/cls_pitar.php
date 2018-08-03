@@ -35,7 +35,7 @@ class pitar
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia="SELECT * from calearbi inner join arbitros on arbitros.idarbitro = calearbi.idarbitros ";
+        $sentencia="SELECT * from calearbi inner join arbitros on arbitros.idarbitro = calearbi.idarbitros INNER JOIN calendarios on calendarios.idcalendario = calearbi.idcalendarioss INNER JOIN fechas on calendarios.idfechas = fechas.idfecha  ";
         $result= mysqli_query($conexion,$sentencia);
         return $result;  
     }

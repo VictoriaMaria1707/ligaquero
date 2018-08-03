@@ -10,7 +10,7 @@
     </head>
     <body class="container">
         <h1 class="blockquote text-center">Registro de Usuario</h1>
-<form id="form1" action="../acciones/guardar_usuario.php" method="post">    
+<form id="form1" action="../acciones/guardar_registrar.php" method="post">    
 <table style="height: 200px;">
     <tbody>
 

@@ -50,6 +50,15 @@ class arbitro
         $row=mysqli_fetch_assoc($result);
         return $row;   
     }
+    public function verificarcedula($cedula)
+    {
+       $conex= new conexion();
+        $conexion= $conex->conectar();
+        $sentencia=sprintf("select cedula from jugadores where cedula ='%s'",$cedula);
+        $result= mysqli_query($conexion,$sentencia);
+        $row=mysqli_fetch_assoc($result);
+        return $row;   
+    }
      
     public function actualizar($cedula, $nombre, $apellido, $direccion, $telefono, $celular, $correo, $codigo)
     {

@@ -15,9 +15,25 @@ echo"<table class='table'>
             <th>Cedula</th>
             <th>Direccion</th>
             <th>Telefono</th>
-            <th>Correo</th>
-            <th>Modificar</th>
+            <th>Correo</th>";
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+}
+if (isset($_SESSION['ROL']))
+ {
+    if ($_SESSION['ROL'] == 'secretaria'){
+        echo "
+            <th>Pase a otro quipo</th>
         </tr></thead>";
+         }else{ 
+    }
+ }
+else
+{
+     header('Location: ../vistas/login.php');
+}           
+     
         
 while($row=mysqli_fetch_assoc($result)){
 echo "<tr>
@@ -26,9 +42,22 @@ echo "<tr>
             <td>".$row["cedula"]."</td>
             <td>".$row["direccion"]."</td>
             <td>".$row["telefono"]."</td>
-            <td>".$row["correo"]."</td>
+            <td>".$row["correo"]."</td>";
+    
+if (isset($_SESSION['ROL']))
+ {
+    if ($_SESSION['ROL'] == 'secretaria'){
+        echo "
             <td align='center'><a href='../vistas/editar_jugador.php?valor=".$row["idjugador"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
-        </tr>";
+        </tr>"; }else{ 
+
+    }
+ }
+else
+{
+     header('Location: ../vistas/login.php');
+}
+        
 }
 echo "</table>";
 ?>
