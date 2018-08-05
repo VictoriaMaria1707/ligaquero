@@ -24,7 +24,7 @@ if (isset($_SESSION['ROL']))
  {
     if ($_SESSION['ROL'] == 'secretaria'){
         echo "
-            <th>Pase a otro quipo</th>
+            <th>Modificar</th>
         </tr></thead>";
          }else{ 
     }

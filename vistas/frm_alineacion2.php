@@ -56,8 +56,7 @@ if (isset($_SESSION['ROL']))
             <?php
             include_once "../clases/cls_alimentacion.php";
             $ali = new alimentacion();
-            $valor=$_GET['equipo2'];
-            $result=$ali->combojugador2($valor);
+            $result=$ali->combojugador2();
             while($row=mysqli_fetch_assoc($result)){ ?>
             <option value="<?php echo $row['idjugador'];?>"><?php echo $row['nombre1'];?></option>
             <?php }?>  

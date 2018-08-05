@@ -39,7 +39,7 @@ if (isset($_SESSION['ROL']))
  {
     if ($_SESSION['ROL'] == 'secretaria'){
         echo "
-            <td align='center'><a href='../vistas/editar_alineacion.php?valor=".$row["idalineacion"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
+            <td align='center'><a href='../vistas/editar_alineacion2.php?valor=".$row["idcanlendario"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
         </tr>";}else{ 
        
     }

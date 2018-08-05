@@ -15,7 +15,7 @@ var xmlhttp=false;
 	}
 	return xmlhttp;
 }
-
+//combo anidados
 function cargar_categoria(codigo_serie)
 {
 combo_categoria=document.getElementById("txt_categoria");	
@@ -36,7 +36,7 @@ ajax.onreadystatechange=function() {
 }
 ajax.send(null);
 }
-
+//no se pueda pegar letras en input numericos
 function validaNumericos(valor){
  for(i=0;i<valor.length;i++){
      var code=valor.charCodeAt(i);

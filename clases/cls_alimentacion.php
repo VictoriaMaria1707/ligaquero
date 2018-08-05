@@ -33,7 +33,7 @@ class alimentacion
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
     }
-    
+        
     public function combojugador2()
     {
        $conex= new conexion();
@@ -79,12 +79,21 @@ class alimentacion
         $row=mysqli_fetch_assoc($result);
         return $row;   
     }
-     
-    public function actualizar($cedula, $nombre1, $nombre2, $apellido1, $apellido2, $direccion, $lugarnacimi, $parentesto, $lugarnaciparen, $telefono, $celular, $correo, $idgenero, $codigo)
+     public function consultar_ali($codigo)
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia=sprintf("update jugadores set cedula='%s', nombre1='%s', nombre2='%s', apellido1='%s', apellido2='%s', direccion='%s', lugarnacimi='%s', parentesto='%s', lugarnaciparen='%s', telefono='%s', celular='%s', correo='%s', idgenero='%s' where idjugador='%s'",$cedula, $nombre1, $nombre2, $apellido1, $apellido2, $direccion, $lugarnacimi, $parentesto, $lugarnaciparen, $telefono, $celular, $correo, $idgenero, $codigo);
+        $sentencia=sprintf("select * from alineaciones INNER join jugadores on jugadores.idjugador = alineaciones.idjugadorss INNER JOIN calendarios on calendarios.idcalendario = alineaciones.idcanlendario where alineaciones.idcanlendario ='%s'",$codigo);
+        $result= mysqli_query($conexion,$sentencia);
+        $row=mysqli_fetch_assoc($result);
+        return $row;   
+    }
+     
+    public function actualizar2($idjugador, $numerocami, $codigo)
+    {
+       $conex= new conexion();
+        $conexion= $conex->conectar();
+        $sentencia=sprintf("update alineaciones set idjugadorss='%s', numerocamiseta='%s' where idalineacion='%s'",$idjugador, $numerocami, $codigo);
         $result= mysqli_query($conexion,$sentencia);
         return $result;  
     }

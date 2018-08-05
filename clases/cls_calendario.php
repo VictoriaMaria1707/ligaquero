@@ -11,6 +11,8 @@ class calendario
     protected $idcanchas;
     protected $idetapas;
     protected $fechas;
+    protected $marca1;
+    protected $marca2;
     
     public function __construct(){
         $this->idcalendario="";
@@ -21,6 +23,8 @@ class calendario
         $this->idcanchas="";
         $this->idetapas="";
         $this->fechas="";
+        $this->marca1="";
+        $this->marca2="";
     }
     
     public function insert($idequipo1, $idequipo2, $idtemporadas, $idcanchas, $idetapas, $fechas)
@@ -53,7 +57,14 @@ class calendario
         
         return $result;   
     }
-     
+     public function actualizarmarca($marca1,$marca2,$idcalendario)
+    {
+       $conex= new conexion();
+        $conexion= $conex->conectar();
+        $sentencia=sprintf("update calendarios set Marcadorequi1 ='%s', Marcadorequi2 ='%s' where idcalendario='%s'",$marca1,$marca2,$idcalendario);
+        $result= mysqli_query($conexion,$sentencia);
+        return $result;   
+    }
     public function comboequipo()
     {
        $conex= new conexion();
@@ -112,7 +123,15 @@ class calendario
         $result= mysqli_query($conexion,$sentencia);
         return $result;  
     }
-    
+     public function consultar_marca($codigo)
+    {
+       $conex= new conexion();
+        $conexion= $conex->conectar();
+        $sentencia=sprintf("select * from calendarios  where idcalendario ='%s'",$codigo);
+        $result= mysqli_query($conexion,$sentencia);
+        $row=mysqli_fetch_assoc($result);
+        return $row;   
+    }
      public function consultar_dato($codigo)
     {
        $conex= new conexion();
