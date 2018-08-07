@@ -36,6 +36,27 @@ ajax.onreadystatechange=function() {
 }
 ajax.send(null);
 }
+//cargar etapa-equipos
+function cargar_etapa_equipo(codigo_etapa)
+{
+combo_etapa=document.getElementById("txt_etapa");	
+ajax= nuevoAjax();
+ajax.open("GET","../acciones/cargar_etapa_equipo.php?codigo="+codigo_etapa,true);
+ajax.onreadystatechange=function() {
+	if(ajax.readyState==1)
+  	{
+		
+	}
+	else
+	{
+ 	   if(ajax.readyState==4)
+		{
+		combo_etapa.innerHTML= ajax.responseText;
+		}	
+	}
+}
+ajax.send(null);
+}
 //no se pueda pegar letras en input numericos
 function validaNumericos(valor){
  for(i=0;i<valor.length;i++){
