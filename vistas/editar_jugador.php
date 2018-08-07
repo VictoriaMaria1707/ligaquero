@@ -73,18 +73,19 @@
                         include_once "../clases/cls_jugador.php";
                         $juga = new jugador();
                         $result=$juga->combogenero();
-                    while($row=mysqli_fetch_assoc($result)){ ?>
-                            <option value="<?php echo $row['idgenero'];?>"><?php echo $row['Detalle_genero'];?></option>
+                    while($row1=mysqli_fetch_assoc($result)){ ?>
+                            <option value="<?php echo $row1['idgenero'];?>"><?php echo $row1['Detalle_genero'];?></option>
 
                             <?php
                                     }
                                 ?>      
                         </select></th>
                 </tr>
-  <tr>
+                     
+                <tr>
             <th><label for="txt_lugarnaci">lugar de nacimiento</label> </th>
             <th> <select id="txt_lugarnaci" name="txt_lugarnaci" onchange="lugarnaci(this.value);" required>
-            <option >--Seleccione--</option>
+            <option value="<?php echo $row["lugarnacimi"];?>"><?php echo $row["lugarnacimi"];?></option>
             <option>Quero</option>
             <option>Ambato</option>
             <option>Guaranda</option>
@@ -94,9 +95,9 @@
         </tr>
         
        <tr>
-          <th><label for='txt_parentest' id='txt_parentest' style="visibility:hidden" >Parentesto</label> </th>
-           <th> <select id="txt_parentesto" style="visibility:hidden" name="txt_parentesto" onchange="parent(this.value);" >
-            <option>--Seleccione--</option>
+          <th><label for='txt_parentest' id='txt_parentest' style="visibility:visible" >Parentesto</label> </th>
+           <th> <select id="txt_parentesto" style="visibility:visible" name="txt_parentesto" onchange="parent(this.value);" >
+            <option value="<?php echo $row["parentesto"];?>"><?php echo $row["parentesto"];?></option>
             <option>Esposo</option>
             <option>Esposa</option>
             <option>Madre</option>
@@ -107,17 +108,17 @@
       </tr>
 
         <tr>
-            <th><label for='txt_lugarnacipar' id='txt_lugarnacipar' style="visibility:hidden">lugar de nacimiento del pariente</label> </th>
-            <th> <select id="txt_lugarnacipari" name="txt_lugarnacipari" style="visibility:hidden" onchange="lugarnacipar(this.value);" >
-            <option>--Seleccione--</option>
+            <th><label for='txt_lugarnacipar' id='txt_lugarnacipar' style="visibility:visible">lugar de nacimiento del pariente</label> </th>
+            <th> <select id="txt_lugarnacipari" name="txt_lugarnacipari1" style="visibility:visible" onchange="lugarnacipar(this.value);" >
+            <option value="<?php echo $row["lugarnaciparen"];?>"><?php echo $row["lugarnaciparen"];?></option>
             <option>Quero</option>
             <option>Ambato</option>
             <option>Guaranda</option>
             <option>Cevallos</option>
             <option>Quito</option>
-            </select></th>
-        </tr>
-              
+                </select></th> </tr>
+
+            
             <tr>
                 <th></th>
                 <th> <input id="btn_actualizar" type="submit" value="Actualizar"></th>
