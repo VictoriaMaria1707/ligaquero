@@ -50,7 +50,7 @@ if (isset($_SESSION['ROL']))
             <tbody>
                 <tr>
                     <th><label for="txt_fecha">Fecha</label> </th>
-                    <th><input type="date" id="txt_fecha" name="txt_fecha" required /></th>
+                    <th><input type="time" id="txt_fecha" name="txt_fecha" required /></th>
                 </tr>
                 
                 
