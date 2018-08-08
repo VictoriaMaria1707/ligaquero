@@ -36,12 +36,12 @@ ajax.onreadystatechange=function() {
 }
 ajax.send(null);
 }
-//cargar etapa-equipos
-function cargar_etapa_equipo(codigo_etapa)
+//cargar equipo1
+function cargar_equipo1(codigo_equipo1)
 {
-combo_etapa=document.getElementById("txt_etapa");	
+combo_equipo1=document.getElementById("txt_equipo1");	
 ajax= nuevoAjax();
-ajax.open("GET","../acciones/cargar_etapa_equipo.php?codigo="+codigo_etapa,true);
+ajax.open("GET","../acciones/cargar_equipo1.php?codigo="+codigo_equipo1,true);
 ajax.onreadystatechange=function() {
 	if(ajax.readyState==1)
   	{
@@ -51,7 +51,29 @@ ajax.onreadystatechange=function() {
 	{
  	   if(ajax.readyState==4)
 		{
-		combo_etapa.innerHTML= ajax.responseText;
+		combo_equipo1.innerHTML= ajax.responseText;
+		}	
+	}
+}
+ajax.send(null);
+}
+
+//cargar equipo2
+function cargar_equipo2(codigo_equipo2)
+{
+combo_equipo2=document.getElementById("txt_equipo2");	
+ajax= nuevoAjax();
+ajax.open("GET","../acciones/cargar_equipo2.php?codigo="+codigo_equipo2,true);
+ajax.onreadystatechange=function() {
+	if(ajax.readyState==1)
+  	{
+		
+	}
+	else
+	{
+ 	   if(ajax.readyState==4)
+		{
+		combo_equipo2.innerHTML= ajax.responseText;
 		}	
 	}
 }
