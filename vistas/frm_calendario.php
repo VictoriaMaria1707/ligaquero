@@ -50,7 +50,7 @@ if (isset($_SESSION['ROL']))
             <tbody>
                 <tr>
                     <th><label for="txt_fecha">Fecha</label> </th>
-                    <th><input type="time" id="txt_fecha" name="txt_fecha" required /></th>
+                    <th><input type="date" id="txt_fecha" name="txt_fecha" required /></th>
                 </tr>
                 
                  <tr>
@@ -61,7 +61,6 @@ if (isset($_SESSION['ROL']))
                 
                 
     
-    <form id="form1" action="../acciones/guardar_calendario.php" method="post">
     <br><br><br>
     <?php 
     include_once "../clases/cls_calendario.php";
