@@ -54,7 +54,7 @@ else
      header('Location: ../vistas/login.php');
 }
  echo "             
-    0<td align='center'><a href='../vistas/reporte_calendario.php?valor=".$row["idcalendario"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>";
+    <td align='center'><a target='_blank' href='../vistas/reporte_calendario.php?valor=".$row["idcalendario"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>";
 
           
 }
