@@ -63,7 +63,7 @@ class equipo
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia=sprintf("UPDATE transferencias set idequipos = '%s' where idtransferencia='%s'",$idequipo, $codigo);
+        $sentencia=sprintf("UPDATE transferencias set idequipos ='%s' where idtransferencia='%s'",$idequipo, $codigo);
         $result= mysqli_query($conexion,$sentencia);
         return $result;  
     }
