@@ -18,6 +18,7 @@
         $equi= new equipo();
         $ider=$equi->consultar_dato($_GET['valor']);
         $resu=$equi->comboequipo();
+ 
     ?>
       <h1>Equipo <?php echo $ider['nombreequipo'];?></h1>
         
@@ -48,12 +49,18 @@ if (isset($_SESSION['ROL']))
             
                 while($row=mysqli_fetch_assoc($resu))
             {
+                    if($row["idequipo"]== $_GET["valor"])
+                        {
+                        
+                            
+                        }else{?>
+                    
                   
-            ?>
+            
         <option value="<?php echo $row['idequipo'];?>"><?php echo $row['nombreequipo'];?></option>
         
         <?php
-                }
+                }}
             ?>
             
         </select> </th></tr>

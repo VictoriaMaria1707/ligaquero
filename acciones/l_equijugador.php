@@ -46,7 +46,8 @@ echo "<tr>
  {
     if ($_SESSION['ROL'] == 'secretaria'){
         echo "
-            <td align='center'><a href='../vistas/frm_passes.php?valor=".$row["idtransferencia"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
+            <td align='center'><a href='../vistas/frm_passes.php?
+            valor=".$row["idtransferencia"]."&idequipo=".$_GET['valor']."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
         </tr>"; }else{ 
 
     }
