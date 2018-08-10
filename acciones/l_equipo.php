@@ -22,18 +22,17 @@ if (isset($_SESSION['ROL']))
  {
     if ($_SESSION['ROL'] == 'secretaria'){
         echo "<th>Ingresar jugadores</th>
-            <th>Modificar equipo</th>
-        </tr></thead>";
+            <th>Modificar equipo</th>";
     }else{ 
-        echo "<th>Ver jugadores</th>
-        </tr></thead>";
+        echo "<th>Ver jugadores</th>";
     }
  }
 else
 {
      header('Location: ../vistas/login.php');
 }           
-            
+echo "<th>Reporte</th>
+        </tr></thead>";            
         
 while($row=mysqli_fetch_assoc($result)){
 echo "<tr>
@@ -47,8 +46,7 @@ if (isset($_SESSION['ROL']))
  {
     if ($_SESSION['ROL'] == 'secretaria'){
         echo "<td align='center'><a href='../vistas/frm_equijugador.php?valor=".$row["idequipo"]."&categoria=".$row["nombre_cate"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
-            <td align='center'><a href='../vistas/editar_equipo.php?valor=".$row["idequipo"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
-        </tr>";
+            <td align='center'><a href='../vistas/editar_equipo.php?valor=".$row["idequipo"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>";
     }else{ 
         echo "<td align='center'><a href='../acciones/l_equijugador.php?valor=".$row["idequipo"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>";
     }
@@ -57,7 +55,7 @@ else
 {
      header('Location: ../vistas/login.php');
 }
-          
+echo "<td align='center'><a href='../vistas/reporte_jugador.php?valor=".$row["idequipo"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td> </tr>";
 }
 echo "</table>";
 ?>

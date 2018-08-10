@@ -50,7 +50,14 @@ class equipo
         $row=mysqli_fetch_assoc($result);
         return $row;   
     }
-     
+      public function consultar_datos($codigo)
+    {
+       $conex= new conexion();
+        $conexion= $conex->conectar();
+        $sentencia=sprintf("select * from equipo inner join categorias on equipo.idcategoria = categorias.idcategoria inner join series on categorias.idserie = series.idserie where idequipo ='%s'",$codigo);
+        $result= mysqli_query($conexion,$sentencia);
+        return $result;   
+    }
     public function actualizar($nombreequipo, $Numjugadores, $nombredueno, $nombreentrenador, $idcategoria, $codigo)
     {
        $conex= new conexion();
@@ -103,7 +110,7 @@ class equipo
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia=sprintf("SELECT nombre1, apellido1, nombreequipo, estado, idtransferencia FROM transferencias inner join equipo on transferencias.idequipos = equipo.idequipo inner join jugadores on jugadores.idjugador = transferencias.idjugadores Where idequipo = '%s'",$codigo);
+        $sentencia=sprintf("SELECT * FROM transferencias inner join equipo on transferencias.idequipos = equipo.idequipo inner join jugadores on jugadores.idjugador = transferencias.idjugadores Where idequipo = '%s'",$codigo);
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
     }

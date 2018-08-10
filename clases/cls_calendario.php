@@ -135,6 +135,24 @@ class calendario
         $result= mysqli_query($conexion,$sentencia);
         return $result;  
     }
+    
+          public function reporequipo1($idcalendario)
+    {
+       $conex= new conexion();
+        $conexion= $conex->conectar();
+        $sentencia="select equipo.nombreequipo from equipo where idequipo =( SELECT idequipo1 from calendarios WHERE idcalendario ='".$idcalendario."')";          
+        $result= mysqli_query($conexion,$sentencia);
+        return $result;  
+    }
+    
+     public function reporequipo2($idcalendario)
+    {
+       $conex= new conexion();
+        $conexion= $conex->conectar();
+        $sentencia="select equipo.nombreequipo from equipo where idequipo =( SELECT idequipo2 from calendarios WHERE idcalendario ='".$idcalendario."')";          
+        $result= mysqli_query($conexion,$sentencia);
+        return $result;  
+    }
      public function consultar_marca($codigo)
     {
        $conex= new conexion();

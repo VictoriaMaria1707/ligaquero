@@ -7,26 +7,24 @@ include_once("../clases/cls_calendario.php");
 $seleccion = new calendario();
  
 $datosReporte = $seleccion->reporte($_GET['valor']);
- $datosReporte1 = $seleccion->reporte($_GET['valor']);
-$datosReporte2 = $seleccion->reporte($_GET['valor']);
+$datosReporte1 = $seleccion->reporte($_GET['valor']);
+$datosReporte2 = $seleccion->reporequipo1($_GET['valor']);
+$datosReporte3 = $seleccion->reporequipo2($_GET['valor']);
 $pdf = new PDF();
  
 $pdf->AddPage();
-$y_axis_initial = 25;
 
+$miCabecera = array( 'Temporada', 'Serie','Categoria','Fecha','Hora');
 
-$pdf->headeras();
+$miCabecera1 = array( 'Cancha','Arbitro','Marcador Equipo Uno','Marcador Equipo Dos');
 
-$miCabecera = array( 'Temporada', 'Serie','Categoria','fecha','Cancha');
-
-$miCabecera1 = array( 'Equipo Uno','Equipo Dos','Marcador Equipo Uno','Marcador Equipo Dos');
-
-$miCabecera2 = array( 'Arbitro');
+$miCabecera2 = array( 'Equipo Uno');
+$miCabecera3 = array( 'Equipo Dos');
  
 $pdf->tablaHorizontal($miCabecera, $datosReporte);
 $pdf->tablaHorizontal1($miCabecera1, $datosReporte1);
 $pdf->tablaHorizontal2($miCabecera2, $datosReporte2);
- 
+$pdf->tablaHorizontal3($miCabecera3, $datosReporte3);
 $pdf->Output(); //Salida al navegador
 ?>
 
