@@ -12,4 +12,4 @@ if ($equi)
     {
         echo "error";
     }
-?>
+?> 
