@@ -13,6 +13,7 @@ class calendario
     protected $fechas;
     protected $marca1;
     protected $marca2;
+    protected $hora;
     
     public function __construct(){
         $this->idcalendario="";
@@ -25,19 +26,16 @@ class calendario
         $this->fechas="";
         $this->marca1="";
         $this->marca2="";
+        $this->hora="";
     }
     
-    public function insert($idequipo1, $idequipo2, $idtemporadas, $idcanchas, $idetapas, $fechas,$hora)
+    public function insert($idequipo1, $idequipo2, $idtemporadas, $idcanchas, $idetapas, $fechas, $hora)
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
         
-        $sentencia="select * from fechas where fecha='".$fechas."'";
-        $result3= mysqli_query($conexion,$sentencia);
-        $row2=mysqli_fetch_assoc($result3);
-        
-        if ($row2['idfecha'] == 0){
-        $sentencia=sprintf("Insert into fechas (fecha,hora) values('%s','%s')",$fechas,$hora);
+
+        $sentencia=sprintf("Insert into fechas (fecha, hora) values('%s','%s')",$fechas,$hora);
         $result1= mysqli_query($conexion,$sentencia);
         
         $sentencia="select idfecha from fechas where fecha = '".$fechas."'";
@@ -46,15 +44,6 @@ class calendario
         
         $sentencia=sprintf("Insert into calendarios (idequipo1, idequipo2, idfechas, idtemporadas, idcanchas, idetapas,Marcadorequi1,Marcadorequi2) values('%s','%s','%s','%s','%s','%s','0','0')",$idequipo1, $idequipo2, $row['idfecha'], $idtemporadas, $idcanchas, $idetapas);
         $result= mysqli_query($conexion,$sentencia);
-            
-        }else{
-            
-        $sentencia=sprintf("Insert into calendarios (idequipo1, idequipo2, idfechas, idtemporadas, idcanchas, idetapas,Marcadorequi1,Marcadorequi2) values('%s','%s','%s','%s','%s','%s','0','0')",$idequipo1, $idequipo2, $row2['idfecha'], $idtemporadas, $idcanchas, $idetapas);
-        $result= mysqli_query($conexion,$sentencia);  
-            
-        }
-        
-        
         return $result;   
     }
      public function actualizarmarca($marca1,$marca2,$idcalendario)
