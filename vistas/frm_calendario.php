@@ -13,7 +13,7 @@
      <?php   
     include_once("../vistas/menu.php");
  ?>
-    <body class="container">
+    <body class="container" >
       <h1>Calendario</h1>
         
         <div id="lista">
@@ -58,42 +58,49 @@ if (isset($_SESSION['ROL']))
                     <th><label for="txt_hora">Hora</label> </th>
                     <th><input type="time" id="txt_hora" name="txt_hora" required /></th>
                 </tr>
-    <br><br><br>
     <?php 
     include_once "../clases/cls_calendario.php";
         $cale= new calendario();
         $resu=$cale->comboetapas(); 
    //  echo  $resu['nombreserie'];
     ?>
-     <label for="txt_etapas">Serie</label>     
-        <select id="txt_etapas" name="txt_etapas" required onchange="cargar_equipo1(this.value);">
-            <option value="">--Seleccione--</option>
-        <?php
-                while($row1=mysqli_fetch_assoc($resu))
-            {
-                  
-            ?>
-        <option value="<?php echo $row1['idetapa'];?>"><?php echo $row1['nombreetapa'];?></option>
-        
-        <?php
-                }
-            ?>
-        </select> 
-    <br><br>
-     <?php 
-  
-   //  echo  $resu['nombreserie'];
-    ?>
-    <label for="txt_equipo1">Nombre de equipo1</label>
-       <select id="txt_equipo1" name="txt_equipo1" required>
-            <option value="">--Seleccione--</option>
-        </select> 
-    <br><br>
-                   <label for="txt_equipo2">Nombre de equipo2</label>
-       <select id="txt_equipo2" name="txt_equipo2" required>
-            <option value="">--Seleccione--</option>
-      
-        </select> 
+   
+    <tr>
+    <th><label for="txt_etapas">Serie</label></th>      
+    <th> <select id="txt_etapas" name="txt_etapas" required>
+    <option>--Seleccione--</option>
+    <?php
+    $result=$cale->comboetapas();
+    while($row=mysqli_fetch_assoc($result)){ ?>
+    <option value="<?php echo $row['idetapa'];?>"><?php echo $row['nombreetapa'];?></option>
+    <?php  } ?>      
+    </select></th>
+    </tr>
+    
+     <tr>
+    <th><label for="txt_equipo1">Equipo 1</label></th>      
+    <th> <select id="txt_equipo1" name="txt_equipo1" required>
+    <option>--Seleccione--</option>
+    <?php
+    $result=$cale->comboequipo();
+    while($row=mysqli_fetch_assoc($result)){ ?>
+    <option value="<?php echo $row['idequipo1'];?>"><?php echo $row['nombreequipo'];?></option>
+    <?php  } ?>      
+    </select></th>
+    </tr>
+                
+     <tr>
+    <th><label for="txt_equipo2">Equipo 2</label></th>      
+    <th> <select id="txt_equipo2" name="txt_equipo2" required>
+    <option>--Seleccione--</option>
+    <?php
+    $result=$cale->comboequipo();
+    while($row=mysqli_fetch_assoc($result)){ ?>
+    <option value="<?php echo $row['idequipo2'];?>"><?php echo $row['nombreequipo'];?></option>
+    <?php  } ?>      
+    </select></th>
+    </tr>
+    
         <br><br>  
                 <tr>
                     <th><label for="txt_temporada">Temporada</label></th>      

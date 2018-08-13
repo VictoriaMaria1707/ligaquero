@@ -98,7 +98,7 @@ class calendario
         return $result;   
     }  
     
-      public function consultar()
+    public function consultar()
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
