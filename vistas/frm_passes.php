@@ -12,7 +12,7 @@
     <?php   
     include_once("../vistas/menu.php");
  ?>
-    <body>
+    <body class="container">
       <?php 
         include_once "../clases/cls_equipo.php";
         $equi= new equipo();

@@ -14,7 +14,7 @@
     $resi = new alimentacion();
     $row1=$resi->fechass($_GET['valor']);
  ?>
-    <body>
+    <body class="container">
       <h1>Alineacion</h1>
         
         <div id="lista">

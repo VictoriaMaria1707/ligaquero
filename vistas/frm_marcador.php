@@ -15,7 +15,7 @@
 $cale= new calendario();
 $result=$cale->consultar_marca($_GET["valor"]);
  ?>
-    <body>
+    <body class="container">
       <h1>Marcador </h1>
 
  <form id="form1" action="../acciones/guardar_marcador.php" method="post">    

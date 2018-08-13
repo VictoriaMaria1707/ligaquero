@@ -11,7 +11,7 @@
     <?php   
     include_once("../vistas/menu.php");
  ?>
-    <body>
+    <body class="container">
       <h1>Usuarios</h1>
         
         <div id="lista">

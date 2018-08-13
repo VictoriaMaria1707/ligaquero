@@ -12,7 +12,7 @@ echo"<table class='table'>
         <tr>
             <th>Jugador</th>
             <th>Numero de camiseta</th>
-            <th>fecha</th>";
+            <th>Fecha</th>";
 if(!isset($_SESSION)) 
     { 
         session_start(); 

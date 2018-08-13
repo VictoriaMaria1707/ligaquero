@@ -13,7 +13,7 @@
      <?php   
     include_once("../vistas/menu.php");
  ?>
-    <body>
+    <body class="container">
       <h1>Calendario</h1>
         
         <div id="lista">
@@ -48,7 +48,7 @@ if (isset($_SESSION['ROL']))
       <div class="modal-body">
         <form id="form1" action="../acciones/guardar_calendario.php" method="post">    
         <table>
-            <tbody>
+            <tbody class="container">
                 <tr>
                     <th><label for="txt_fecha">Fecha</label> </th>
                     <th><input type="date" id="txt_fecha" name="txt_fecha" required /></th>

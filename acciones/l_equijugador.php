@@ -13,7 +13,7 @@ echo"<table class='table'>
         <tr>
             <th>Nombre del equipo</th>
             <th>Nombre del jugador</th>
-            <th>estado</th>";
+            <th>Estado</th>";
 if(!isset($_SESSION)) 
     { 
         session_start(); 

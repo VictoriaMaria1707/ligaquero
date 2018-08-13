@@ -13,7 +13,7 @@ echo"<table class='table'>
             <th>Numero de jugadores</th>
             <th>Nombre del dueño</th>
             <th>Nombre del entrenador</th>
-            <th>categoria</th>";
+            <th>Categoria</th>";
 if(!isset($_SESSION)) 
     { 
         session_start(); 
@@ -45,17 +45,17 @@ echo "<tr>
 if (isset($_SESSION['ROL']))
  {
     if ($_SESSION['ROL'] == 'secretaria'){
-        echo "<td align='center'><a href='../vistas/frm_equijugador.php?valor=".$row["idequipo"]."&categoria=".$row["nombre_cate"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
+        echo "<td align='center'><a href='../vistas/frm_equijugador.php?valor=".$row["idequipo"]."&categoria=".$row["nombre_cate"]."'><img src='../img/jugador.png' width='30px' height='30px'></a></td>
             <td align='center'><a href='../vistas/editar_equipo.php?valor=".$row["idequipo"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>";
     }else{ 
-        echo "<td align='center'><a href='../acciones/l_equijugador.php?valor=".$row["idequipo"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>";
+        echo "<td align='center'><a href='../acciones/l_equijugador.php?valor=".$row["idequipo"]."'><img src='../img/jugador.png' width='30px' height='30px'></a></td>";
     }
  }
 else
 {
      header('Location: ../vistas/login.php');
 }
-echo "<td align='center'><a target='_blank'  href='../vistas/reporte_jugador.php?valor=".$row["idequipo"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td> </tr>";
+echo "<td align='center'><a target='_blank'  href='../vistas/reporte_jugador.php?valor=".$row["idequipo"]."'><img src='../img/reportes.ico' width='20px' height='20px'></a></td> </tr>";
 }
 echo "</table>";
 ?>

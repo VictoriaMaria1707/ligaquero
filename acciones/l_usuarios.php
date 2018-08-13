@@ -10,7 +10,7 @@ $result=$usu->consultar();
 echo"<table class='table'>
 <thead class='thead-dark'>
         <tr>
-            <th>usuario</th>
+            <th>Usuario</th>
             <th>Rol</th>
             <th>Modificar</th>
              <th>Eliminar</th>

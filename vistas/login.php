@@ -13,7 +13,7 @@
 
 <form action="../acciones/secionrol.php" method="post" >
 <table style="height: 200px;" >
-    <tbody >
+    <tbody class="container">
     <tr >
         <th ><label for="txt_usuario">Usuarios</label></th> 
         <th ><input type="text" id="txt_usuario" name="txt_usuario" required/></th>
