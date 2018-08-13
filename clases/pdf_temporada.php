@@ -1,7 +1,7 @@
 <?php
 require_once('../fpdf181/fpdf.php');
  
-class PDFjuga extends FPDF
+class PDF extends FPDF
 {
   function Footer(){
         $this->SetY(-15);
@@ -14,29 +14,29 @@ class PDFjuga extends FPDF
         $this->SetFont('Arial','B',20);
         $this->Line(10,10,206,10);
         $this->Line(10,35.5,206,35.5);
-        $this->Cell(111,25,'Reporte del equipo',0,0,'C');
+        $this->Cell(111,25,'Reporte de la fecha del calendario',0,0,'C');
         $this->Ln(25);
     }
-    function cabeceraHorizontal($cabecera){
+    function cabeceraHorizontal($cabecera)
+    {
         $this->SetXY(10, 10);
         $this->SetFont('Arial','B',10);
         $this->SetFillColor(2,157,116);//Fondo verde de celda
-        //$this->SetTextColor(240, 255, 240); //Letra color blanco
-        $this->SetTextColor(3, 3, 3); //Color del texto: Negro
+        $this->SetTextColor(240, 255, 240); //Letra color blanco
+        //$this->SetTextColor(3, 3, 3); //Color del texto: Negro
         $ejeX = 10;
          $this->Ln(35);
         foreach($cabecera as $fila)
         { 
             
-            $this->RoundedRect($ejeX, 44, 30, 0 ,0,0);
-            $this->CellFitSpace(30,7, utf8_decode($fila),0, 4 , 'L');
-            $this->Line(10,45,206,45);
+            $this->RoundedRect($ejeX, 44, 30, 7, 2, 'FD');
+            $this->CellFitSpace(30,7, utf8_decode($fila),0, 0 , 'C');
             $ejeX = $ejeX + 30;
         }
-        $this->Line(10,80,206,80);
     }
 
-    function datosHorizontal($datos){
+    function datosHorizontal($datos)
+    {
         
         $this->SetFont('Arial','',10);
         $this->SetFillColor(229, 229, 229); //Gris tenue de cada fila
@@ -46,13 +46,13 @@ class PDFjuga extends FPDF
         $letra = 'D'; //'D' Dibuja borde de cada CellFitSpace -- 'FD' Dibuja borde y rellena
         foreach($datos as $fila)
         {
-            $this->SetXY(40,45);
+            $this->SetXY(10,50);
             //$this->RoundedRect(10, $ejeY, 120, 7, 2, $letra);
-            $this->CellFitSpace(30,7, utf8_decode($fila['nombreequipo']),'LR', 4 , 'LR' );
-            $this->CellFitSpace(30,7, utf8_decode($fila['nombredueno']),'LR', 4 , 'L' );
-            $this->CellFitSpace(30,7, utf8_decode($fila['nombreentrenador']),'LR', 4 , 'L' );
-            $this->CellFitSpace(30,7, utf8_decode($fila['nombreserie']),'LR', 4 , 'L' );
-            $this->CellFitSpace(30,7, utf8_decode($fila['nombre_cate']),'LR', 4 , 'L' );
+            $this->CellFitSpace(30,7, utf8_decode($fila['nombre_temporada']),'LR', 0 , 'L' );
+            $this->CellFitSpace(30,7, utf8_decode($fila['nombreserie']),'LR', 0 , 'L' );
+            $this->CellFitSpace(30,7, utf8_decode($fila['nombre_cate']),'LR', 0 , 'L' );
+            $this->CellFitSpace(30,7, utf8_decode($fila['fecha']),'LR', 0 , 'L' );
+           // $this->CellFitSpace(30,7, utf8_decode($fila['hora']),'LR', 0 , 'L' );
             $this->Ln(20);
             ($letra == 'D') ? $letra = 'FD' : $letra = 'D';
             $ejeY = $ejeY + 7;        
@@ -66,11 +66,11 @@ class PDFjuga extends FPDF
         $this->SetTextColor(240, 255, 240); //Letra color blanco
         //$this->SetTextColor(3, 3, 3); //Color del texto: Negro
         $ejeX = 10;
-         $this->Ln(90);
+         $this->Ln(50);
         foreach($cabecera1 as $fila1)
         { 
             
-            $this->RoundedRect($ejeX, 100, 30, 7, 2, 'FD');
+            $this->RoundedRect($ejeX, 60, 30, 7, 2, 'FD');
             $this->CellFitSpace(30,7, utf8_decode($fila1),0, 0 , 'C');
             $ejeX = $ejeX + 30;
         }
@@ -84,25 +84,97 @@ class PDFjuga extends FPDF
         $this->SetTextColor(3, 3, 3); //Color del texto: Negro
         $bandera = false; //Para alternar el relleno
         $ejeY = 25; //Aquí se encuentra la primer CellFitSpace e irá incrementando
-        $letra = 'FD'; //'D' Dibuja borde de cada CellFitSpace -- 'FD' Dibuja borde y rellena
-        
-    $this->SetXY(10,107);
+        $letra = 'D'; //'D' Dibuja borde de cada CellFitSpace -- 'FD' Dibuja borde y rellena
         foreach($datos1 as $fila1)
         {
-            
-           // $this->RoundedRect(10, $ejeY, 120, 7, 2, $letra);
-            $this->CellFitSpace(30,7, utf8_decode($fila1['nombre1']." ".$fila1['nombre2']),0, 0 , 'L' );
-            $this->CellFitSpace(30,7, utf8_decode($fila1['apellido1']." ".$fila1['apellido2']),0, 0, 'L' );          
-            $this->CellFitSpace(30,7, utf8_decode($fila1['edad']),0, 0 , 'L' );
-            $this->CellFitSpace(30,7, utf8_decode($fila1['direccion']),0, 0 , 'L' );
-            $this->CellFitSpace(30,7, utf8_decode($fila1['correo']),0, 0 , 'L' );
-             $this->Ln(05);
+            $this->SetXY(10,67);
+            //$this->RoundedRect(10, $ejeY, 120, 7, 2, $letra);
+            $this->CellFitSpace(30,7, utf8_decode($fila1['nombre_cancha']),'LR', 0 , 'L' );
+            $this->CellFitSpace(30,7, utf8_decode($fila1['nombre']),'LR', 'LR', 'L' );            
+            $this->CellFitSpace(30,7, utf8_decode($fila1['Marcadorequi1']),'LR', 'LR' , 'L' );
+            $this->CellFitSpace(30,7, utf8_decode($fila1['Marcadorequi2']),'LR', 0 , 'L' );
+             $this->Ln(30);
             ($letra == 'D') ? $letra = 'FD' : $letra = 'D';
             $ejeY = $ejeY + 7;
             
         }
     }
-   
+     function cabeceraHorizontal2($cabecera1)
+    {
+        $this->SetXY(10, 10);
+        $this->SetFont('Arial','B',10);
+        $this->SetFillColor(2,157,116);//Fondo verde de celda
+        $this->SetTextColor(240, 255, 240); //Letra color blanco
+        //$this->SetTextColor(3, 3, 3); //Color del texto: Negro
+        $ejeX = 10;
+         $this->Ln(70);
+        foreach($cabecera1 as $fila1)
+        { 
+            
+            $this->RoundedRect($ejeX, 80, 30, 7, 2, 'FD');
+            $this->CellFitSpace(30,7, utf8_decode($fila1),0, 0 , 'C');
+            $ejeX = $ejeX + 30;
+        }
+    }
+
+    function datosHorizontal2($datos1)
+    {
+        
+        $this->SetFont('Arial','',10);
+        $this->SetFillColor(229, 229, 229); //Gris tenue de cada fila
+        $this->SetTextColor(3, 3, 3); //Color del texto: Negro
+        $bandera = false; //Para alternar el relleno
+        $ejeY = 25; //Aquí se encuentra la primer CellFitSpace e irá incrementando
+        $letra = 'D'; //'D' Dibuja borde de cada CellFitSpace -- 'FD' Dibuja borde y rellena
+        foreach($datos1 as $fila1)
+        {
+            $this->SetXY(10,87);
+            //$this->RoundedRect(10, $ejeY, 120, 7, 2, $letra);        
+            $this->CellFitSpace(30,7, utf8_decode($fila1['nombreequipo']),'LR', 'LR' , 'L' );
+             $this->Ln(30);
+            ($letra == 'D') ? $letra = 'FD' : $letra = 'D';
+            $ejeY = $ejeY + 7;
+            
+        }
+    }
+     function cabeceraHorizontal3($cabecera1)
+    {
+        $this->SetXY(10, 10);
+        $this->SetFont('Arial','B',10);
+        $this->SetFillColor(2,157,116);//Fondo verde de celda
+        $this->SetTextColor(240, 255, 240); //Letra color blanco
+        //$this->SetTextColor(3, 3, 3); //Color del texto: Negro
+        $ejeX = 40;
+         $this->Ln(70);
+        foreach($cabecera1 as $fila1)
+        { 
+            
+            $this->RoundedRect($ejeX, 80, 30, 7, 2, 'FD');
+            $this->CellFitSpace(90,7, utf8_decode($fila1),0, 0 , 'C');
+            $ejeX = $ejeX + 30;
+        }
+    }
+
+    function datosHorizontal3($datos1)
+    {
+        
+        $this->SetFont('Arial','',10);
+        $this->SetFillColor(229, 229, 229); //Gris tenue de cada fila
+        $this->SetTextColor(3, 3, 3); //Color del texto: Negro
+        $bandera = false; //Para alternar el relleno
+        $ejeY = 25; //Aquí se encuentra la primer CellFitSpace e irá incrementando
+        $letra = 'D'; //'D' Dibuja borde de cada CellFitSpace -- 'FD' Dibuja borde y rellena
+        foreach($datos1 as $fila1)
+        {
+            $this->SetXY(40,87);
+            //$this->RoundedRect(10, $ejeY, 120, 7, 2, $letra);        
+            $this->CellFitSpace(30,7, utf8_decode($fila1['nombreequipo']),'LR', 'LR' , 'L' );
+             $this->Ln(30);
+            ($letra == 'D') ? $letra = 'FD' : $letra = 'D';
+            $ejeY = $ejeY + 7;
+            
+        }
+    }
     function tablaHorizontal($cabeceraHorizontal, $datosHorizontal)
     {
         $this->cabeceraHorizontal($cabeceraHorizontal);
@@ -113,7 +185,7 @@ class PDFjuga extends FPDF
         $this->cabeceraHorizontal1($cabeceraHorizontal1);
         $this->datosHorizontal1($datosHorizontal1);
     }
-      /*  function tablaHorizontal2($cabeceraHorizontal2, $datosHorizontal2)
+        function tablaHorizontal2($cabeceraHorizontal2, $datosHorizontal2)
     {
         $this->cabeceraHorizontal2($cabeceraHorizontal2);
         $this->datosHorizontal2($datosHorizontal2);
@@ -122,7 +194,7 @@ class PDFjuga extends FPDF
     {
         $this->cabeceraHorizontal3($cabeceraHorizontal3);
         $this->datosHorizontal3($datosHorizontal3);
-    }*/
+    }
     //**************************************************************************************************************
     function CellFit($w, $h=0, $txt='', $border=0, $ln=0, $align='', $fill=false, $link='', $scale=false, $force=true)
     {

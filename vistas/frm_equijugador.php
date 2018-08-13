@@ -36,7 +36,7 @@ if (isset($_SESSION['ROL']))
  {
     if ($_SESSION['ROL'] == 'secretaria'){
         ?>          
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nuevo">Nuevo Jugador</button>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nuevo">Seleccionar Jugador</button>
 
 <!-- Modal -->
 <div class="modal fade" id="nuevo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -46,7 +46,7 @@ if (isset($_SESSION['ROL']))
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           
           
-        <h4 class="modal-title" id="myModalLabel">Nuevo Jugador</h4>
+        <h4 class="modal-title" id="myModalLabel">Selecione Jugador</h4>
       </div>
       <div class="modal-body">
         <form id="form1" action="../acciones/guardar_equijugador.php" method="post">    
