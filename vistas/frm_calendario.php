@@ -58,10 +58,6 @@ if (isset($_SESSION['ROL']))
                     <th><label for="txt_hora">Hora</label> </th>
                     <th><input type="time" id="txt_hora" name="txt_hora" required /></th>
                 </tr>
-                
-                
-                
-    
     <br><br><br>
     <?php 
     include_once "../clases/cls_calendario.php";
@@ -91,18 +87,14 @@ if (isset($_SESSION['ROL']))
     <label for="txt_equipo1">Nombre de equipo1</label>
        <select id="txt_equipo1" name="txt_equipo1" required>
             <option value="">--Seleccione--</option>
-      
         </select> 
-   
     <br><br>
                    <label for="txt_equipo2">Nombre de equipo2</label>
        <select id="txt_equipo2" name="txt_equipo2" required>
             <option value="">--Seleccione--</option>
       
         </select> 
-        <br><br>
-                          
-                
+        <br><br>  
                 <tr>
                     <th><label for="txt_temporada">Temporada</label></th>      
                     <th> <select id="txt_temporada" name="txt_temporada" required>
@@ -124,11 +116,10 @@ if (isset($_SESSION['ROL']))
                             <option value="<?php echo $row['idcachas'];?>"><?php echo $row['nombre_cancha'];?></option>
 
                             <?php
-                                    }
+                          }
                                 ?>      
                         </select></th>
                 </tr>
-                
             </tbody>
             </table>
       
