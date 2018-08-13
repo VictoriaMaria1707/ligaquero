@@ -73,7 +73,7 @@ class calendario
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
     }
-     public function combotemporada()
+       public function combotemporada()
     {
        $conex= new conexion();
         $conexion= $conex->conectar();

@@ -84,7 +84,7 @@ if (isset($_SESSION['ROL']))
     <?php
     $result=$cale->comboequipo();
     while($row=mysqli_fetch_assoc($result)){ ?>
-    <option value="<?php echo $row['idequipo1'];?>"><?php echo $row['nombreequipo'];?></option>
+    <option value="<?php echo $row['idequipo'];?>"><?php echo $row['nombreequipo'];?></option>
     <?php  } ?>      
     </select></th>
     </tr>
@@ -96,7 +96,7 @@ if (isset($_SESSION['ROL']))
     <?php
     $result=$cale->comboequipo();
     while($row=mysqli_fetch_assoc($result)){ ?>
-    <option value="<?php echo $row['idequipo2'];?>"><?php echo $row['nombreequipo'];?></option>
+    <option value="<?php echo $row['idequipo'];?>"><?php echo $row['nombreequipo'];?></option>
     <?php  } ?>      
     </select></th>
     </tr>
