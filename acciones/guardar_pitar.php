@@ -5,7 +5,7 @@ $pit->insert($_POST['txt_arbitro'],$_POST['txt_idcalen']);
 if ($pit)
     {
         
-       header('Location: ../vistas/frm_pitar.php');
+       header('Location: ../vistas/frm_calendario.php');
         
     }
     else
