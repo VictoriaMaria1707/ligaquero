@@ -128,7 +128,7 @@ if (isset($_SESSION['ROL']))
                                 ?>      
                         </select></th>
                 </tr>
-                    
+                
             </tbody>
             </table>
       

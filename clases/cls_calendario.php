@@ -27,7 +27,7 @@ class calendario
         $this->marca2="";
     }
     
-    public function insert($idequipo1, $idequipo2, $idtemporadas, $idcanchas, $idetapas, $fechas)
+    public function insert($idequipo1, $idequipo2, $idtemporadas, $idcanchas, $idetapas, $fechas,$hora)
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
@@ -37,7 +37,7 @@ class calendario
         $row2=mysqli_fetch_assoc($result3);
         
         if ($row2['idfecha'] == 0){
-        $sentencia=sprintf("Insert into fechas (fecha) values('%s')",$fechas);
+        $sentencia=sprintf("Insert into fechas (fecha,hora) values('%s','%s')",$fechas,$hora);
         $result1= mysqli_query($conexion,$sentencia);
         
         $sentencia="select idfecha from fechas where fecha = '".$fechas."'";
