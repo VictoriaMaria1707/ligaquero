@@ -49,7 +49,7 @@ if (isset($_SESSION['ROL']))
             
                 while($row=mysqli_fetch_assoc($resu))
             {
-                    if($row["idequipo"]== $_GET["valor"])
+                    if($row["idequipo"]== $_GET["idequipo"])
                         {
                         
                             

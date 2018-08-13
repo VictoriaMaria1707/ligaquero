@@ -55,7 +55,7 @@ else
 {
      header('Location: ../vistas/login.php');
 }
-echo "<td align='center'><a href='../vistas/reporte_jugador.php?valor=".$row["idequipo"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td> </tr>";
+echo "<td align='center'><a target='_blank'  href='../vistas/reporte_jugador.php?valor=".$row["idequipo"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td> </tr>";
 }
 echo "</table>";
 ?>
