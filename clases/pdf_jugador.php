@@ -113,16 +113,7 @@ class PDFjuga extends FPDF
         $this->cabeceraHorizontal1($cabeceraHorizontal1);
         $this->datosHorizontal1($datosHorizontal1);
     }
-      /*  function tablaHorizontal2($cabeceraHorizontal2, $datosHorizontal2)
-    {
-        $this->cabeceraHorizontal2($cabeceraHorizontal2);
-        $this->datosHorizontal2($datosHorizontal2);
-    }
-        function tablaHorizontal3($cabeceraHorizontal3, $datosHorizontal3)
-    {
-        $this->cabeceraHorizontal3($cabeceraHorizontal3);
-        $this->datosHorizontal3($datosHorizontal3);
-    }*/
+
     //**************************************************************************************************************
     function CellFit($w, $h=0, $txt='', $border=0, $ln=0, $align='', $fill=false, $link='', $scale=false, $force=true)
     {
