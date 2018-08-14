@@ -52,7 +52,7 @@ class PDF extends FPDF
             $this->CellFitSpace(30,7, utf8_decode($fila['nombreserie']),'LR', 0 , 'L' );
             $this->CellFitSpace(30,7, utf8_decode($fila['nombre_cate']),'LR', 0 , 'L' );
             $this->CellFitSpace(30,7, utf8_decode($fila['fecha']),'LR', 0 , 'L' );
-           // $this->CellFitSpace(30,7, utf8_decode($fila['hora']),'LR', 0 , 'L' );
+           $this->CellFitSpace(30,7, utf8_decode($fila['hora']),'LR', 0 , 'L' );
             $this->Ln(20);
             ($letra == 'D') ? $letra = 'FD' : $letra = 'D';
             $ejeY = $ejeY + 7;        

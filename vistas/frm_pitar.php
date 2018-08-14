@@ -31,11 +31,15 @@ if (isset($_SESSION['ROL']))
     if ($_SESSION['ROL'] == 'secretaria'){
         ?>  
   <form id="form1" action="../acciones/guardar_pitar.php" method="post">    
-      <div class="container table-responsive-xl">
+<div class="container table-responsive-xl">
           <section1 class="container"> <h1>Arbitros</h1> </section1>
-           <input type="hidden" id="txt_idcalen" name="txt_idcalen" required value="<?php echo $_GET["valor"] ?> "/>
+          
 <table class="table">
     <tbody>
+        <tr>
+        <th></th>
+            <th> <input type="hidden" id="txt_idcalen" name="txt_idcalen" required value="<?php echo $_GET["valor"] ?> "/></th>
+        </tr>
         <tr>
             <th scope="col"><label for="txt_arbitro">Arbitro</label></th>      
             <th scope="col"> <select id="txt_arbitro" name="txt_arbitro" required>
@@ -62,7 +66,7 @@ if (isset($_SESSION['ROL']))
 </table>
       
  </div>
-   
+   </form>
 
 <!-- Modal -->
 <div class="modal fade" id="nuevo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -126,7 +130,7 @@ if (isset($_SESSION['ROL']))
     </div>
   </div>
 </div>
-          </form>
+          
         <?php
         }else{ 
     } }
