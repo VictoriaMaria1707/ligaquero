@@ -58,10 +58,19 @@ class calendario
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia="select * from equipo";
+        $sentencia="select idequipo, nombreequipo from equipo";
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
     }
+       public function comboequipo2($idequipo2)
+    {
+       $conex= new conexion();
+        $conexion= $conex->conectar();
+        $sentencia="select * from equipo where idequipo <> ".$idequipo2;
+        $result= mysqli_query($conexion,$sentencia);
+        return $result;   
+    }
+    
        public function combotemporada()
     {
        $conex= new conexion();

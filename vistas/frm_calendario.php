@@ -63,7 +63,7 @@ if (isset($_SESSION['ROL']))
     include_once "../clases/cls_calendario.php";
         $cale= new calendario();
         $resu=$cale->comboetapas(); 
-   //  echo  $resu['nombreserie'];
+        
     ?>
    
     <tr>
@@ -77,59 +77,53 @@ if (isset($_SESSION['ROL']))
     <?php  } ?>      
     </select></th>
     </tr>
-    
+    <?php $result=$cale->comboequipo(); ?>
      <tr>
     <th><label for="txt_equipo1">Equipo 1</label></th>      
-    <th> <select id="txt_equipo1" name="txt_equipo1" required>
-    <option>--Seleccione--</option>
+    <th> <select id="txt_equipo1" name="txt_equipo1" required onchange="cargar_equipo(this.value);">
+    <option value="">--Seleccione--</option>
     <?php
-    $result=$cale->comboequipo();
-    while($row=mysqli_fetch_assoc($result)){ 
+    
+    while($row1=mysqli_fetch_assoc($result)){ 
         ?>
-    <option value="<?php echo $row['idequipo'];?>"><?php echo $row['nombreequipo'];?></option>
+    <option value="<?php echo $row1['idequipo'];?>"><?php echo $row1['nombreequipo'];?></option>
     <?php  } ?>      
     </select></th>
     </tr>
                 
      <tr>
     <th><label for="txt_equipo2">Equipo 2</label></th>      
-    <th> <select id="txt_equipo2" name="txt_equipo2" required>
-    <option>--Seleccione--</option>
-    <?php
-    $result=$cale->comboequipo();
-    while($row=mysqli_fetch_assoc($result)){
-       ?>
-    <option value="<?php echo $row['idequipo'];?>"><?php echo $row['nombreequipo'];?></option>
-    <?php  } ?>      
+    <th> <select id="txt_equipo2" name="txt_equipo2" required >
+    <option value="">--Seleccione--</option>
+     
     </select></th>
     </tr>
-    
-        <br><br>  
+      
                 <tr>
-                    <th><label for="txt_temporada">Temporada</label></th>      
-                    <th> <select id="txt_temporada" name="txt_temporada" required>
-                        <option>--Seleccione--</option>
-                    <?php
-                        $result=$cale->combotemporada();
-                    while($row=mysqli_fetch_assoc($result)){ ?>
-                            <option value="<?php echo $row['idtemporada'];?>"><?php echo $row['nombre_temporada'];?></option>
-                            <?php  } ?>      
-                        </select></th>
-                </tr>
-                                 <tr>
-                    <th><label for="txt_canchas">Canchas</label></th>      
-                    <th> <select id="txt_canchas" name="txt_canchas" required>
-                        <option>--Seleccione--</option>
-                    <?php
-                        $result=$cale->combocanchas();
-                    while($row=mysqli_fetch_assoc($result)){ ?>
-                            <option value="<?php echo $row['idcachas'];?>"><?php echo $row['nombre_cancha'];?></option>
+    <th><label for="txt_temporada">Temporada</label></th>      
+    <th> <select id="txt_temporada" name="txt_temporada" required>
+        <option>--Seleccione--</option>
+    <?php
+        $result=$cale->combotemporada();
+    while($row=mysqli_fetch_assoc($result)){ ?>
+            <option value="<?php echo $row['idtemporada'];?>"><?php echo $row['nombre_temporada'];?></option>
+            <?php  } ?>      
+        </select></th>
+</tr>
+<tr>
+    <th><label for="txt_canchas">Canchas</label></th>      
+    <th> <select id="txt_canchas" name="txt_canchas" required>
+        <option>--Seleccione--</option>
+    <?php
+        $result=$cale->combocanchas();
+    while($row=mysqli_fetch_assoc($result)){ ?>
+            <option value="<?php echo $row['idcachas'];?>"><?php echo $row['nombre_cancha'];?></option>
 
-                            <?php
-                          }
-                                ?>      
-                        </select></th>
-                </tr>
+            <?php
+          }
+                ?>      
+        </select></th>
+</tr>
             </tbody>
             </table>
       
