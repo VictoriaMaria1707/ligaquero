@@ -1,7 +1,7 @@
 <?php
 require_once('../fpdf181/fpdf.php');
  
-class PDF extends FPDF
+class PDFtem extends FPDF
 {
   function Footer(){
         $this->SetY(-15);
@@ -14,7 +14,7 @@ class PDF extends FPDF
         $this->SetFont('Arial','B',20);
         $this->Line(10,10,206,10);
         $this->Line(10,35.5,206,35.5);
-        $this->Cell(111,25,'Reporte de la fecha del calendario',0,0,'C');
+        $this->Cell(111,25,'Reporte de temporada ',0,0,'C');
         $this->Ln(25);
     }
     function cabeceraHorizontal($cabecera)

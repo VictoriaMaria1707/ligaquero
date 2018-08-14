@@ -18,15 +18,17 @@ if(!isset($_SESSION))
 if (isset($_SESSION['ROL']))
  {
     if ($_SESSION['ROL'] == 'secretaria'){
-        echo "<th>Modificar</th>
-        </tr></thead>";
+        echo "<th>Modificar</th>";
         }else{ 
+        
     }
  }
 else
 {
      header('Location: ../vistas/login.php');
-}       
+} 
+echo "<th>Reporte</th>
+        </tr></thead>";
 while($row=mysqli_fetch_assoc($result)){
 echo "<tr>
             <td>".$row["nombre_temporada"]."</td>";
@@ -35,8 +37,7 @@ if (isset($_SESSION['ROL']))
  {
     if ($_SESSION['ROL'] == 'secretaria'){
         echo "
-            <td align='center'><a href='../vistas/editar_temporada.php?valor=".$row["idtemporada"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
-        </tr>";}else{ 
+            <td align='center'><a href='../vistas/editar_temporada.php?valor=".$row["idtemporada"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>";}else{ 
        
     }
  }
@@ -44,6 +45,9 @@ else
 {
      header('Location: ../vistas/login.php');
 }
+    echo "
+            <td align='center'><a target='_blank' href='../vistas/reporte_temporada.php?valor=".$row["idtemporada"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
+        </tr>";
 }
 echo "</table>";
 ?>
