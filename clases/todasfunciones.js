@@ -61,14 +61,6 @@ ajax.send(null);
 
 
 //no se pueda pegar letras en input numericos
-function validaNumericos(valor){
- for(i=0;i<valor.length;i++){
-     var code=valor.charCodeAt(i);
-         if(code<=48 || code>=57){          
-           inputtxt.value=""; 
-           return;
-         }    
-   }}
  
     
 function lugarnaci(lug){
@@ -114,9 +106,8 @@ function lugarnacipar(lugpar){
     
 }
 
-function validarDocumento() {          
-   
-      numero = document.getElementById('txt_cedula').value;
+function validarDocumento(numero) {          
+      //numero = document.getElementById('txt_cedula').value;
 	  /* alert(numero); */
 
       var suma = 0;      
