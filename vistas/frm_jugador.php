@@ -7,7 +7,7 @@
         <script src="../jquery-3.1.1.min.js"></script>
         <script src="../bootstrap/js/bootstrap.js"></script>
            <script src="../clases/todasfunciones.js"></script>
-	   <title>Menu </title>
+        	   <title>Menu </title>
     </head>
     <?php   
     include_once("../vistas/menu.php");
@@ -19,6 +19,7 @@
         
     <?php 
         include_once("../acciones/l_jugadores.php");
+ 
         ?>
 </div>
         <?php
@@ -48,8 +49,15 @@ if (isset($_SESSION['ROL']))
     <tbody>
         <tr>
             <th><label for="txt_cedula">Cedula</label> </th>
-            <th><input type="text" id="txt_cedula" name="txt_cedula" required  onkeypress='return event.charCode > 48 && event.charCode <= 57;'  onblur="validaNumericos(this.value);"  onchange="validarCedula(this.value);" maxlength="10" /></th>
-            <th>
+            <th><input type="text" id="txt_cedula" name="txt_cedula" required  onkeypress='return event.charCode >= 48 && event.charCode <= 57;'  onblur="validaNumericos(this.value);"  maxlength="10" /></th>
+            
+            <th><input type="button" value="Validar"
+onclick="
+   if (validarDocumento())
+      alert('EL NUMERO DE DOCUMENTO INGRESADO ES CORRECTO');
+   else
+      alert('NO SE PUEDE VALIDAR EL NUMERO DE DOCUMENTO');
+"> </th>
 
         </tr>
 
