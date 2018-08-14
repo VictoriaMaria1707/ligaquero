@@ -160,7 +160,15 @@ class calendario
         $row=mysqli_fetch_assoc($result);
         return $row;   
     }
-     
+        public function consultar_datoe($codigo)
+    {
+       $conex= new conexion();
+        $conexion= $conex->conectar();
+        $sentencia=sprintf("select * from equipo where idequipo ='%s'",$codigo);
+        $result= mysqli_query($conexion,$sentencia);
+        $row=mysqli_fetch_assoc($result);
+        return $row;   
+    }
     public function actualizar($cedula, $nombre1, $nombre2, $apellido1, $apellido2, $direccion, $lugarnacimi, $parentesto, $lugarnaciparen, $telefono, $celular, $correo, $idgenero, $codigo)
     {
        $conex= new conexion();
