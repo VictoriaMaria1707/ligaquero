@@ -23,8 +23,6 @@
         include_once("../acciones/l_calendario.php");
         include_once "../clases/cls_calendario.php";
         $cale = new calendario();
-         $ide=$cale->consultar_datoe($_GET['valor']);
-        $res=$cale->comboequipo();
         ?>
 </div>
     <?php
@@ -87,11 +85,9 @@ if (isset($_SESSION['ROL']))
     <?php
     $result=$cale->comboequipo();
     while($row=mysqli_fetch_assoc($result)){ 
-        if($row["idequipo"]== $_GET["idequipo"])
-                        {
-                        }else{?>
+        ?>
     <option value="<?php echo $row['idequipo'];?>"><?php echo $row['nombreequipo'];?></option>
-    <?php  }} ?>      
+    <?php  } ?>      
     </select></th>
     </tr>
                 
@@ -102,11 +98,9 @@ if (isset($_SESSION['ROL']))
     <?php
     $result=$cale->comboequipo();
     while($row=mysqli_fetch_assoc($result)){
-        if($row["idequipo"]== $_GET["idequipo"])
-                        {    
-                        }else{?>
+       ?>
     <option value="<?php echo $row['idequipo'];?>"><?php echo $row['nombreequipo'];?></option>
-    <?php  }} ?>      
+    <?php  } ?>      
     </select></th>
     </tr>
     
