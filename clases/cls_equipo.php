@@ -50,6 +50,7 @@ class equipo
         $row=mysqli_fetch_assoc($result);
         return $row;   
     }
+   
       public function consultar_datos($codigo)
     {
        $conex= new conexion();
