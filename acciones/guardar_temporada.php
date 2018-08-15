@@ -1,7 +1,7 @@
 <?php
 require_once("../clases/cls_temporada.php");
 $tem = new temporada();
-$tem->insertequi($_POST['txt_temporada'],$_POST['txt_temporada']);
+$tem->insert($_POST['txt_temporada'],$_POST['txt_fechaini'],$_POST['txt_fechafin']);
     if ($tem)
     {
     header("Location: ../vistas/frm_temporadas.php");
@@ -9,6 +9,6 @@ $tem->insertequi($_POST['txt_temporada'],$_POST['txt_temporada']);
     }
     else
     {
-        echo "error";
+        echo "error"; 
     }
 ?>
