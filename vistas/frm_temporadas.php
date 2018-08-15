@@ -52,11 +52,11 @@ if (isset($_SESSION['ROL']))
         </tr>
         <tr>
             <th><label for="txt_fechaini">Fecha inicio</label> </th>
-            <th><input type="date" id="txt_fechaini" name="txt_fechaini" required min=<?php $hoy=date("Y-m-d"); echo $hoy;?> /></th>
+            <th><input type="date" id="txt_fechaini" name="txt_fechaini" required min="<?php $hoy=date("Y-m-d"); echo $hoy;?>" /></th>
         </tr>
         <tr>
             <th><label for="txt_fechafin">Fecha Fin</label> </th>
-            <th><input type="date" id="txt_fechafin" name="txt_fechafin" required min=<?php $hoy=date("Y-m-d"); echo $hoy;?>/></th>
+            <th><input type="date" id="txt_fechafin" name="txt_fechafin" required min="<?php $hoy=date("Y-m-d"); echo $hoy;?>"/></th>
         </tr>
     </tbody>
 </table>
