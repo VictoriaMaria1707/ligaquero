@@ -87,10 +87,7 @@ if (isset($_SESSION['ROL']))
 </div>
 
         
- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nuevojugador">Nuevo Jugador</button>
-
-        
-        
+ <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nuevojugador">Nuevo Jugador</button>    
         
 <!-- Modal -->
 <div class="modal fade" id="nuevojugador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -103,14 +100,16 @@ if (isset($_SESSION['ROL']))
         <h4 class="modal-title" id="myModalLabel">Nuevo Jugadores</h4>
       </div>
       <div class="modal-body">
-        <form id="form1" action="../acciones/guardar_jugadores.php" method="post">    
+        <form id="form1" action="../acciones/guardar_jugadores.php" method="post">  
+           
 <table>
     <tbody>
         <tr>
             <th><label for="txt_cedula">Cedula</label> </th>
             <th><input type="text" id="txt_cedula" name="txt_cedula" required  
-             onkeypress='return event.charCode >= 48 && event.charCode <= 57;' onblur="validaNumericos(this.value);" maxlength="10" /></th>
+             onblur="validarDocumento(this.value);" maxlength="10" /></th>
             <th>
+
 
         </tr>
 

@@ -50,6 +50,7 @@ if (isset($_SESSION['ROL']))
             <th><label for="txt_temporada">Temporada</label> </th>
             <th><input type="text" id="txt_temporada" name="txt_temporada" required maxlength="30"/></th>
         </tr>
+        
 
     </tbody>
 </table>
