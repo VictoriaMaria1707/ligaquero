@@ -28,6 +28,7 @@ else
      header('Location: ../vistas/login.php');
 } 
 echo "<th>Reporte</th>
+    <th>Reporte Categorias</th>
         </tr></thead>";
 while($row=mysqli_fetch_assoc($result)){
 echo "<tr>
@@ -47,6 +48,7 @@ else
 }
     echo "
             <td align='center'><a target='_blank' href='../vistas/reporte_temporada.php?valor=".$row["idtemporada"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>
+            <td align='center'><a target='_blank' href='../vistas/reporte_Categoria.php?valor=".$row["idtemporada"]."'><img src='../img/editar.png' width='20px' height='20px'></a></td>            
         </tr>";
 }
 echo "</table>";

@@ -59,6 +59,29 @@ ajax.onreadystatechange=function() {
 ajax.send(null);
 }
 
+function cargar_equipo(fechaini)
+{
+var actual= 
+if (fechaini >= $actual)
+combo_equipo=document.getElementById("txt_equipo2");	
+ajax= nuevoAjax();
+   
+ajax.open("GET","../acciones/cargar_equipo.php?codigo1="+codigo_equipo,true);
+ajax.onreadystatechange=function() {
+	if(ajax.readyState==1)
+  	{
+		
+	}
+	else
+	{
+ 	   if(ajax.readyState==4)
+		{
+		combo_equipo.innerHTML= ajax.responseText;
+		}	
+	}
+}
+ajax.send(null);
+}
 
 //no se pueda pegar letras en input numericos
  

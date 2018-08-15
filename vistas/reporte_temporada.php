@@ -14,7 +14,7 @@ $miCabecera = array( 'Temporada', 'fechas','Arbitro','Cancha','hora');
 $pdf->tablaHorizontal($miCabecera, $datosReporte);
 
 $pdf->AddPage();
-$datosReporte1 =$seleccion->consultartransacciones();
+$datosReporte1 =$seleccion->consultartransacciones($_GET['valor']);
 $miCabecera1 = array( 'Nombre equipo','Nonmbres','Apellidos','Edad','Telefono');
 
 

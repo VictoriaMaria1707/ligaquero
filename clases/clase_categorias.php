@@ -17,7 +17,7 @@ class categoria
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia="SELECT * from categorias where idserie=".$codigo;
+        $sentencia="SELECT * from categorias where idseries=".$codigo;
         $result= mysqli_query($conexion,$sentencia);
         //$row=mysqli_fetch_assoc($result);
         return $result;   
