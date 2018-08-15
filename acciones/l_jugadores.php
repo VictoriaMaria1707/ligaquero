@@ -13,6 +13,7 @@ echo"<table class='table'>
             <th>Nombres</th>
             <th>Apellidos</th>
             <th>Cedula</th>
+            <th>Edad</th>
             <th>Direccion</th>
             <th>Telefono</th>
             <th>Correo</th>";
@@ -40,6 +41,7 @@ echo "<tr>
             <td>".$row["nombre1"]." ".$row["nombre2"]."</td>
             <td>".$row["apellido1"]." ".$row["apellido2"]."</td>
             <td>".$row["cedula"]."</td>
+            <td>".$row["edad"]."</td>
             <td>".$row["direccion"]."</td>
             <td>".$row["telefono"]."</td>
             <td>".$row["correo"]."</td>";

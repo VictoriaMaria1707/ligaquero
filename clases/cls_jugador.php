@@ -18,6 +18,7 @@ class jugador
     protected $correo;
     protected $idgenero;
     protected $genero;
+    protected $edad;
     
     public function __construct(){
         $this->codigo="";
@@ -35,13 +36,14 @@ class jugador
         $this->correo="";
         $this->idgenero="";
         $this->genero="";
+        $this->edad="";
     }
     
-    public function insert($cedula, $nombre1, $nombre2, $apellido1, $apellido2, $direccion, $lugarnacimi, $parentesto, $lugarnaciparen, $telefono, $celular, $correo, $idgenero)
+    public function insert($cedula, $nombre1, $nombre2, $apellido1, $apellido2, $direccion, $lugarnacimi, $parentesto, $lugarnaciparen, $telefono, $celular, $correo, $idgenero,$edad)
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia=sprintf("Insert into jugadores (cedula, nombre1, nombre2, apellido1, apellido2, direccion, lugarnacimi, parentesto, lugarnaciparen, telefono, celular, correo, idgenero,esta) values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','1')",$cedula, $nombre1, $nombre2, $apellido1, $apellido2, $direccion, $lugarnacimi, $parentesto, $lugarnaciparen, $telefono, $celular, $correo, $idgenero);
+        $sentencia=sprintf("Insert into jugadores (cedula, nombre1, nombre2, apellido1, apellido2, direccion, lugarnacimi, parentesto, lugarnaciparen, telefono, celular, correo, idgenero,esta,edad) values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','1')",$cedula, $nombre1, $nombre2, $apellido1, $apellido2, $direccion, $lugarnacimi, $parentesto, $lugarnaciparen, $telefono, $celular, $correo, $idgenero,$edad);
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
     }
@@ -86,7 +88,7 @@ class jugador
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia=sprintf("update jugadores set cedula='%s', nombre1='%s', nombre2='%s', apellido1='%s', apellido2='%s', direccion='%s', lugarnacimi='%s', parentesto='%s', lugarnaciparen='%s', telefono='%s', celular='%s', correo='%s', idgenero='%s' where idjugador='%s'",$cedula, $nombre1, $nombre2, $apellido1, $apellido2, $direccion, $lugarnacimi, $parentesto, $lugarnaciparen, $telefono, $celular, $correo, $idgenero, $codigo);
+        $sentencia=sprintf("update jugadores set cedula='%s', nombre1='%s', nombre2='%s', apellido1='%s', apellido2='%s', direccion='%s', lugarnacimi='%s', parentesto='%s', lugarnaciparen='%s', telefono='%s', celular='%s', correo='%s', idgenero='%s' edad= '%s' where idjugador='%s'",$cedula, $nombre1, $nombre2, $apellido1, $apellido2, $direccion, $lugarnacimi, $parentesto, $lugarnaciparen, $telefono, $celular, $correo, $idgenero,$edad, $codigo);
         $result= mysqli_query($conexion,$sentencia);
         return $result;  
     }
