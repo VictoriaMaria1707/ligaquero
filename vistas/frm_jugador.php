@@ -49,11 +49,11 @@ if (isset($_SESSION['ROL']))
     <tbody>
         <tr>
             <th><label for="txt_cedula">Cedula</label> </th>
-<<<<<<< HEAD
+
             <th><input type="number" id="txt_cedula" name="txt_cedula" required onblur="validarDocumento(this.value);" maxlength="10"/></th>
-=======
+
             <th><input type="number" id="txt_cedula" name="txt_cedula" required onblur="validarDocumento(this.value);" min="1"  max="10" /></th>
->>>>>>> 8378f8a722f4244d723d2c89594369c28c6dbbf1
+
         </tr>
 
         <tr>

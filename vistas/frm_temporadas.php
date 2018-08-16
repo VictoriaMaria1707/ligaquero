@@ -58,11 +58,6 @@ if (isset($_SESSION['ROL']))
             <th><label for="txt_fechafin">Fecha Fin</label> </th>
             <th><input type="date" id="txt_fechafin" name="txt_fechafin" required min="<?php $hoy=date("Y-m-d"); echo $hoy;?>"/></th>
         </tr>
-<<<<<<< HEAD
-        
-
-=======
->>>>>>> 8378f8a722f4244d723d2c89594369c28c6dbbf1
     </tbody>
 </table>
       
