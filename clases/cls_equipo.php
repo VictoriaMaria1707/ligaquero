@@ -28,6 +28,7 @@ class equipo
        $conex= new conexion();
         $conexion= $conex->conectar();
         $sentencia=sprintf("Insert into equipo (nombreequipo, Numjugadores, nombredueno, nombreentrenador, idcategoria) values('%s','%s','%s','%s','%s')",$nombreequipo, $Numjugadores, $nombredueno, $nombreentrenador, $idcategoria);
+        
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
     }
@@ -67,6 +68,9 @@ class equipo
         $result= mysqli_query($conexion,$sentencia);
         return $result;  
     }
+    
+    
+    
      public function actualizarpas($idequipo,$codigo)
     {
        $conex= new conexion();
@@ -91,14 +95,7 @@ class equipo
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
     }
-     public function insertequi($idjugador,$codigo)
-    {
-       $conex= new conexion();
-        $conexion= $conex->conectar();
-        $sentencia=sprintf("insert into transferencias(idjugadores,idequipos,estado)values('%s','%s','1')",$idjugador,$codigo);
-        $result= mysqli_query($conexion,$sentencia);
-        return $result;   
-    }
+
          public function estadojuga($idjugador)
     {
        $conex= new conexion();
@@ -114,6 +111,21 @@ class equipo
         $sentencia=sprintf("SELECT * FROM transferencias inner join equipo on transferencias.idequipos = equipo.idequipo inner join jugadores on jugadores.idjugador = transferencias.idjugadores Where idequipo = '%s'",$codigo);
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
+    }
+    public function insertequi( $cedula, $nombre1, $nombre2, $apellido1, $apellido2, $direccion, $lugarnacimi, $parentesto, $lugarnaciparen, $telefono, $celular, $correo, $idgenero,$edad,$idjugador)
+    {
+        $conex= new conexion();
+        $conexion= $conex->conectar();
+         $sentencia=sprintf("Insert into jugadores (cedula, nombre1, nombre2, apellido1, apellido2, direccion, lugarnacimi, parentesto, lugarnaciparen, telefono, celular, correo, idgenero,esta,edad) values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','1','%s')",$cedula, $nombre1, $nombre2, $apellido1, $apellido2, $direccion, $lugarnacimi, $parentesto, $lugarnaciparen, $telefono, $celular, $correo, $idgenero,$edad);
+        $result= mysqli_query($conexion,$sentencia);
+                
+        $sentencia=sprintf("select idjugador from jugadores where cedula='%s'",$cedula);
+        $result1= mysqli_query($conexion,$sentencia);
+         $row=mysqli_fetch_assoc($result1);
+        
+        $sentencia=sprintf("insert into transferencias(idjugadores,idequipos,estado)values('%s','%s','1')",$row['idjugador'],$idequipo);
+        $result2= mysqli_query($conexion,$sentencia);
+        return $result2; 
     }
      public function eliminar($codigo)
     {
