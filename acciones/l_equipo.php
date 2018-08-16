@@ -11,7 +11,7 @@ echo"<table class='table'>
         <tr>
             <th>Nombre del equipo</th>
             <th>Numero de jugadores</th>
-            <th>Nombre del dueño</th>
+            <th>Nombre del presidente</th>
             <th>Nombre del entrenador</th>
             <th>Categoria</th>";
 if(!isset($_SESSION)) 
