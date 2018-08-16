@@ -86,7 +86,7 @@ if (isset($_SESSION['ROL']))
         </select> </th></tr>
 
    <tr><th> <label for="txt_categoria">Nombre de categoria</label></th>
-       <th><select id="txt_categoria" name="txt_categoria" required onchange="idcategorias(this.value);">
+       <th><select id="txt_categoria" name="txt_categoria" required>
             <option value="">--Seleccione--</option>
       
         </select></th> </tr>

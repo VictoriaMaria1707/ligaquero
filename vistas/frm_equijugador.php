@@ -148,7 +148,7 @@ if (isset($_SESSION['ROL']))
 
         <tr>
             <th><label for="txt_correo">Correo</label> </th>
-            <th><input type="text" id="txt_corre" name="txt_corre" required maxlength="30" /></th>
+            <th><input type="text" id="txt_correo" name="txt_correo" required maxlength="30" /></th>
             
         </tr>
         
