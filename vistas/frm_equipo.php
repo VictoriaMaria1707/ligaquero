@@ -57,7 +57,7 @@ if (isset($_SESSION['ROL']))
         </tr>
 
          <tr>
-            <th><label for="txt_nomdue">Nombre del dueño del equipo </label> </th>
+            <th><label for="txt_nomdue">Nombre del presidente del equipo</label> </th>
             <th><input type="text" id="txt_nomdue" name="txt_nomdue" required maxlength="30"/></th>
         </tr>
 

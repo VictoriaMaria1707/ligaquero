@@ -52,7 +52,7 @@ if (isset($_SESSION['ROL']))
             <tbody class="container">
                 <tr>
                     <th><label for="txt_fecha">Fecha</label> </th>
-                    <th><input type="date" id="txt_fecha" name="txt_fecha" required /></th>
+                    <th><input type="date" id="txt_fecha" name="txt_fecha" required min="<?php $hoy=date("Y-m-d"); echo $hoy;?>"/></th>
                 </tr>
                 
                  <tr>

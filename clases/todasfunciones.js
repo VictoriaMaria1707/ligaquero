@@ -61,11 +61,8 @@ ajax.send(null);
 
 function cargar_equipo(fechaini)
 {
-var actual= 
-if (fechaini >= $actual)
 combo_equipo=document.getElementById("txt_equipo2");	
-ajax= nuevoAjax();
-   
+ajax= nuevoAjax(); 
 ajax.open("GET","../acciones/cargar_equipo.php?codigo1="+codigo_equipo,true);
 ajax.onreadystatechange=function() {
 	if(ajax.readyState==1)
@@ -128,6 +125,11 @@ function lugarnacipar(lugpar){
     }
     
 }
+function validarNumeroJugadores(nJugadores){
+    if ($_POST['txt_numjuga'] >15 || $_POST['txt_numjuga'] < 12 )
+    {
+        echo "El equipo solo puede tener hasta 15 jugadores y no menos de 12";
+    }
 
 function validarDocumento(numero) {          
       //numero = document.getElementById('txt_cedula').value;
