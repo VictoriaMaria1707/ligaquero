@@ -100,9 +100,10 @@ if (isset($_SESSION['ROL']))
         <h4 class="modal-title" id="myModalLabel">Nuevo Jugadores</h4>
       </div>
       <div class="modal-body">
-        <form id="form1" action="../acciones/guardar_jugadores.php" method="post">  
+        <form id="form1" action="../acciones/guarda_jugador.php" method="post">  
            
 <table>
+    <input type="text" id="txt_idequipo" name="txt_idequipo" value="<?php echo $_GET["valor"];?>"/>
     <tbody>
         <tr>
 

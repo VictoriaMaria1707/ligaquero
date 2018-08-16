@@ -82,7 +82,6 @@ ajax.send(null);
 
 //no se pueda pegar letras en input numericos
  
-    
 function lugarnaci(lug){
 
     if(lug == "Quero" || lug == "--Seleccione--")
