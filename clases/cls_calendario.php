@@ -14,6 +14,7 @@ class calendario
     protected $marca1;
     protected $marca2;
     protected $hora;
+     protected $idarbitro;
     
     public function __construct(){
         $this->idcalendario="";
@@ -27,9 +28,10 @@ class calendario
         $this->marca1="";
         $this->marca2="";
         $this->hora="";
+        $this->idarbitro="";
     }
     
-    public function insert($idequipo1, $idequipo2, $idtemporadas, $idcanchas, $idetapas, $fechas, $hora)
+    public function insert($idequipo1, $idequipo2, $idtemporadas, $idcanchas, $idetapas, $fechas, $hora, $idarbitro)
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
@@ -43,6 +45,13 @@ class calendario
         $row=mysqli_fetch_assoc($result2);
         
         $sentencia=sprintf("Insert into calendarios (idequipo1, idequipo2, idfechas, idtemporadas, idcanchas, idetapas,Marcadorequi1,Marcadorequi2) values('%s','%s','%s','%s','%s','%s','0','0')",$idequipo1, $idequipo2, $row['idfecha'], $idtemporadas, $idcanchas, $idetapas);
+        $result3= mysqli_query($conexion,$sentencia);
+        
+        $sentencia="select idcalendario from calendarios where idfechas = '".$row['idfecha']."'";
+        $result4= mysqli_query($conexion,$sentencia);
+        $row2=mysqli_fetch_assoc($result4);
+        
+        $sentencia=sprintf("Insert into calearbi (idarbitros, idcalendarioss) values('%s','%s')",$idarbitro, $row2['idcalendario']);
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
     }
@@ -100,23 +109,21 @@ class calendario
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia="SELECT * from calendarios inner join fechas on fechas.idfecha = calendarios.idfechas INNER join etapas on etapas.idetapa = calendarios.idetapas INNER JOIN equipo on equipo.idequipo = calendarios.idequipo1 INNER JOIN temporadas on temporadas.idtemporada = calendarios.idtemporadas INNER JOIN canchas on canchas.idcachas = calendarios.idcanchas";          
+        $sentencia="SELECT * from calendarios inner join fechas on fechas.idfecha = calendarios.idfechas INNER join etapas on etapas.idetapa = calendarios.idetapas INNER JOIN equipo on equipo.idequipo = calendarios.idequipo1 INNER JOIN temporadas on temporadas.idtemporada = calendarios.idtemporadas INNER JOIN canchas on canchas.idcachas = calendarios.idcanchas INNER JOIN calearbi on calearbi.idcalendarioss = calendarios.idcalendario INNER JOIN arbitros on arbitros.idarbitro = calearbi.idarbitros";          
         $result= mysqli_query($conexion,$sentencia);
         return $result;  
     }
     
-          public function reporte($idcalendario)
+    public function reporte($idcalendario)
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia="SELECT * from calendarios inner join fechas on fechas.idfecha = calendarios.idfechas INNER join etapas on etapas.idetapa = calendarios.idetapas INNER JOIN equipo on equipo.idequipo = calendarios.idequipo1 INNER JOIN temporadas on temporadas.idtemporada = calendarios.idtemporadas INNER JOIN canchas on canchas.idcachas = calendarios.idcanchas INNER JOIN categorias on categorias.idcategoria = equipo.idcategoria INNER JOIN series on series.idserie = categorias.idserie INNER join calearbi on calearbi.idcalendarioss = calendarios.idcalendario INNER JOIN arbitros on arbitros.idarbitro = calearbi.idarbitros WHERE idcalendario ='".$idcalendario."'";          
+        $sentencia="SELECT * from calendarios inner join fechas on fechas.idfecha = calendarios.idfechas INNER join etapas on etapas.idetapa = calendarios.idetapas INNER JOIN equipo on equipo.idequipo = calendarios.idequipo1 INNER JOIN temporadas on temporadas.idtemporada = calendarios.idtemporadas INNER JOIN canchas on canchas.idcachas = calendarios.idcanchas INNER JOIN categorias on categorias.idcategorias = equipo.idcategoria INNER JOIN series on series.idserie = categorias.idseries INNER join calearbi on calearbi.idcalendarioss = calendarios.idcalendario INNER JOIN arbitros on arbitros.idarbitro = calearbi.idarbitros WHERE idcalendario ='".$idcalendario."'";          
         $result= mysqli_query($conexion,$sentencia);
         return $result;  
     }
-    
-    
-    
-          public function consultarequipo1()
+        
+    public function consultarequipo1()
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
@@ -192,6 +199,15 @@ class calendario
        $conex= new conexion();
         $conexion= $conex->conectar();
         $sentencia=sprintf("delete from usuarios where idusuario='%s'",$codigo);
+        $result= mysqli_query($conexion,$sentencia);
+        return $result;   
+    }
+     
+    public function comboartri()
+    {
+       $conex= new conexion();
+        $conexion= $conex->conectar();
+        $sentencia="select * from arbitros";
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
     }

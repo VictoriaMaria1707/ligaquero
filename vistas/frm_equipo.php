@@ -53,7 +53,7 @@ if (isset($_SESSION['ROL']))
 
         <tr>
             <th><label for="txt_numjuga">Numero de jugadores </label> </th>     
-            <th><input type="text" id="txt_numjuga" name="txt_numjuga" required maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57;' onblur="validaNumericos(this.value);"/> </th> 
+            <th><input type="text" id="txt_numjuga" name="txt_numjuga" required maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57;' onblur="validarNumeroJugadores(this.value);"/> </th> 
         </tr>
 
          <tr>

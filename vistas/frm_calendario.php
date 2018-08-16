@@ -124,6 +124,20 @@ if (isset($_SESSION['ROL']))
                 ?>      
         </select></th>
 </tr>
+                <tr>
+    <th><label for="txt_arbi">Arbitro</label></th>      
+    <th> <select id="txt_arbi" name="txt_arbi" required>
+        <option>--Seleccione--</option>
+    <?php
+        $result=$cale->comboartri();
+    while($row=mysqli_fetch_assoc($result)){ ?>
+            <option value="<?php echo $row['idarbitro'];?>"><?php echo $row['nombre'];?></option>
+
+            <?php
+          }
+                ?>      
+        </select></th>
+</tr>
             </tbody>
             </table>
       

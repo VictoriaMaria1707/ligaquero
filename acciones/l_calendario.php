@@ -40,7 +40,7 @@ echo "<tr>
             <td>".$row["hora"]."</td>
             <td>".$row["nombre_temporada"]."</td>
             <td>".$row["nombre_cancha"]."</td>
-            <td align='center'><a href='../vistas/frm_pitar.php?valor=".$row["idcalendario"]."'><img src='../img/arbitro.png' width='20px' height='20px'></a></td>
+            <td>".$row["nombre"]." ".$row["apellido"]."</td>
             <td align='center'><a href='../vistas/frm_alineacion1.php?valor=".$row["idcalendario"]."'><img src='../img/jugador.png' width='30px' height='30px'></a></td>
              <td align='center'><a href='../vistas/frm_alineacion2.php?valor=".$row["idcalendario"]."'><img src='../img/jugador.png' width='30px' height='30px'></a></td>";
     

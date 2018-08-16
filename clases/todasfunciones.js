@@ -1,4 +1,4 @@
-function nuevoAjax() 
+function nuevoAjax()
 {
 var xmlhttp=false;
  	try {
@@ -41,7 +41,6 @@ function cargar_equipo(codigo_equipo)
 {
 combo_equipo=document.getElementById("txt_equipo2");	
 ajax= nuevoAjax();
-   
 ajax.open("GET","../acciones/cargar_equipo.php?codigo1="+codigo_equipo,true);
 ajax.onreadystatechange=function() {
 	if(ajax.readyState==1)
@@ -59,30 +58,6 @@ ajax.onreadystatechange=function() {
 ajax.send(null);
 }
 
-function cargar_equipo(fechaini)
-{
-combo_equipo=document.getElementById("txt_equipo2");	
-ajax= nuevoAjax(); 
-ajax.open("GET","../acciones/cargar_equipo.php?codigo1="+codigo_equipo,true);
-ajax.onreadystatechange=function() {
-	if(ajax.readyState==1)
-  	{
-		
-	}
-	else
-	{
- 	   if(ajax.readyState==4)
-		{
-		combo_equipo.innerHTML= ajax.responseText;
-		}	
-	}
-}
-ajax.send(null);
-}
-
-//no se pueda pegar letras en input numericos
- 
-    
 function lugarnaci(lug){
 
     if(lug == "Quero" || lug == "--Seleccione--")
@@ -125,11 +100,40 @@ function lugarnacipar(lugpar){
     }
     
 }
+
 function validarNumeroJugadores(nJugadores){
-    if ($_POST['txt_numjuga'] >15 || $_POST['txt_numjuga'] < 12 )
+    
+    if (nJugadores >15 || nJugadores < 12 )
     {
-        echo "El equipo solo puede tener hasta 15 jugadores y no menos de 12";
+        
+        document.getElementById("txt_numjuga").value = "";
+        alert ("El equipo solo puede tener hasta 15 jugadores y no menos de 12");
     }
+}
+
+function verificarcedula(ncedula)
+{
+ajax= nuevoAjax();
+ajax.open("GET","../acciones/veri_cedula.php?valor="+ncedula,true);
+ajax.onreadystatechange=function() {
+	if(ajax.readyState==1)
+  	{
+	}
+	else
+	{
+ 	   if(ajax.readyState==4)
+		{
+     
+                if(ajax.responseText>0)
+            {
+                alert("cedula ya registrada");
+                document.getElementById("txt_cedula").value="";
+            }}}}
+    
+    
+ajax.send(null);
+    
+} 
 
 function validarDocumento(numero) {          
       //numero = document.getElementById('txt_cedula').value;
