@@ -52,7 +52,6 @@ if (isset($_SESSION['ROL']))
 
             <th><input type="number" id="txt_cedula" name="txt_cedula" required onblur="validarDocumento(this.value);" maxlength="10"/></th>
 
-            <th><input type="number" id="txt_cedula" name="txt_cedula" required onblur="validarDocumento(this.value);" min="1"  max="10" /></th>
 
         </tr>
 
@@ -81,8 +80,8 @@ if (isset($_SESSION['ROL']))
             <th><input type="text" id="txt_direccion" name="txt_direccion" required maxlength="30"/></th>
         </tr>
          <tr>
-            <th><label for="txt_edad">Direccion</label> </th>
-            <th><input type="text" id="txt_edad" name="txt_edad" required maxlength="30"/></th>
+            <th><label for="txt_edad">Edad</label> </th>
+            <th><input type="number" id="txt_edad" name="txt_edad" required maxlength="2"/></th>
         </tr>
 
         <tr>
@@ -97,7 +96,7 @@ if (isset($_SESSION['ROL']))
 
         <tr>
             <th><label for="txt_correo">Correo</label> </th>
-            <th><input type="text" id="txt_corre" name="txt_corre" required maxlength="30" /></th>
+            <th><input type="text" id="txt_correo" name="txt_correo" required maxlength="30" /></th>
             
         </tr>
         

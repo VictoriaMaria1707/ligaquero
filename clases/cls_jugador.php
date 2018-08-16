@@ -43,7 +43,7 @@ class jugador
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia=sprintf("Insert into jugadores (cedula, nombre1, nombre2, apellido1, apellido2, direccion, lugarnacimi, parentesto, lugarnaciparen, telefono, celular, correo, idgenero,esta,edad) values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','1')",$cedula, $nombre1, $nombre2, $apellido1, $apellido2, $direccion, $lugarnacimi, $parentesto, $lugarnaciparen, $telefono, $celular, $correo, $idgenero,$edad);
+        $sentencia=sprintf("Insert into jugadores (cedula, nombre1, nombre2, apellido1, apellido2, direccion, lugarnacimi, parentesto, lugarnaciparen, telefono, celular, correo, idgenero,esta,edad) values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','1','%s')",$cedula, $nombre1, $nombre2, $apellido1, $apellido2, $direccion, $lugarnacimi, $parentesto, $lugarnaciparen, $telefono, $celular, $correo, $idgenero,$edad);
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
     }
@@ -84,7 +84,7 @@ class jugador
         return $row;   
     }
      
-    public function actualizar($cedula, $nombre1, $nombre2, $apellido1, $apellido2, $direccion, $lugarnacimi, $parentesto, $lugarnaciparen, $telefono, $celular, $correo, $idgenero, $codigo)
+    public function actualizar($cedula, $nombre1, $nombre2, $apellido1, $apellido2, $direccion, $lugarnacimi, $parentesto, $lugarnaciparen, $telefono, $celular, $correo, $idgenero,$edad, $codigo)
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
