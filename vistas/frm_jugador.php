@@ -50,8 +50,7 @@ if (isset($_SESSION['ROL']))
         <tr>
             <th><label for="txt_cedula">Cedula</label> </th>
 
-            <th><input type="number" id="txt_cedula" name="txt_cedula" required onblur="validarDocumento(this.value);" maxlength="10"/></th>
-
+            <th><input type="text" id="txt_cedula" name="txt_cedula" onblur="validarDocumento(this.value);" maxlength="10"/></th>
 
         </tr>
 
