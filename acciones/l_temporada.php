@@ -10,7 +10,9 @@ $result=$resi->consultar();
 echo"<table class='table'>
 <thead class='thead-dark'>
         <tr>
-            <th>Temporada</th>";
+            <th>Temporada</th>
+            <th>Fecha inicio</th>
+            <th>Fecha Fin</th>";
 if(!isset($_SESSION)) 
     { 
         session_start(); 
@@ -32,7 +34,9 @@ echo "<th>Reporte</th>
         </tr></thead>";
 while($row=mysqli_fetch_assoc($result)){
 echo "<tr>
-            <td>".$row["nombre_temporada"]."</td>";
+            <td>".$row["nombre_temporada"]."</td>
+            <td>".$row["inicio_tem"]."</td>
+            <td>".$row["fin_tem"]."</td>";
     
 if (isset($_SESSION['ROL']))
  {

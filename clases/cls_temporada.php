@@ -20,7 +20,7 @@ class temporada
     {
         $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia=sprintf("Insert into temporadas (nombre_temporada,inicio_tem,fin_tem) values('%s','%s','%s')",$idtemporada);      
+        $sentencia=sprintf("Insert into temporadas (nombre_temporada,inicio_tem,fin_tem) values('%s','%s','%s')",$idtemporada,$fechaini,$fechafin);      
         $result= mysqli_query($conexion,$sentencia);
         
         $sentencia=sprintf("select idtemporada from temporadas where nombre_temporada =",$idtemporada);      
