@@ -36,55 +36,8 @@ if (isset($_SESSION['ROL']))
  {
     if ($_SESSION['ROL'] == 'secretaria'){
         ?>          
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nuevo">Seleccionar Jugador</button>
 
-<!-- Modal -->
-<div class="modal fade" id="nuevo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          
-          
-        <h4 class="modal-title" id="myModalLabel">Selecione Jugador</h4>
-      </div>
-      <div class="modal-body">
-        <form id="form1" action="../acciones/guardar_equijugador.php" method="post">    
-<table>
-    <tbody>
-<h1>
-    <input type="hidden" id="txt_equipi" name="txt_equipi" value="<?php echo $ider['idequipo'];?>"/></h1>
-        
-    <tr><th> <label for="txt_jugador">Jugadores</label> </th>    
-        <th><select id="txt_jugador" name="txt_jugador" required>
-            <option value="">--Seleccione--</option>
-        <?php
-            
-                while($row=mysqli_fetch_assoc($resu))
-            {
-                  
-            ?>
-        <option value="<?php echo $row['idjugador'];?>"><?php echo $row['nombre1']." ".$row['apellido1'];?></option>
-        
-        <?php
-                }
-            ?>
-            
-        </select> </th></tr>
 
-    </tbody>
-</table>
-      
-          <div class="modal-footer">
-              <button id="btn_insertar" type="submit">Insertar</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>       
-          </div>
-       
-          </form>
-           </div>
-    </div>
-  </div>
-</div>
 
         
  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nuevojugador">Nuevo Jugador</button>    
@@ -103,13 +56,14 @@ if (isset($_SESSION['ROL']))
         <form id="form1" action="../acciones/guarda_jugador.php" method="post">  
            
 <table>
-    <input type="text" id="txt_idequipo" name="txt_idequipo" value="<?php echo $_GET["valor"];?>"/>
+    <input type="hidden" id="txt_idequipo" name="txt_idequipo" value="<?php echo $_GET["valor"];?>"/>
+        <input type="hidden" id="txt_catego" name="txt_catego" value="<?php echo $_GET["categoria"];?>"/>
+
     <tbody>
         <tr>
 
           <th><label for="txt_cedula">Cedula</label> </th>
-             <th><input type="text" id="txt_cedula" name="txt_cedula" required  
-             onblur="validarDocumento(this.value);" maxlength="10" /></th>            
+             <th><input type="text" id="txt_cedula" name="txt_cedula" required onblur="verificarcedula(this.value);validarDocumento(this.value);" max="10" /></th>            
         </tr>
 
         <tr>
@@ -136,7 +90,10 @@ if (isset($_SESSION['ROL']))
             <th><label for="txt_direccion">Direccion</label> </th>
             <th><input type="text" id="txt_direccion" name="txt_direccion" required maxlength="30"/></th>
         </tr>
-
+         <tr>
+            <th><label for="txt_edad">Edad</label> </th>
+            <th><input type="number" id="txt_edad" name="txt_edad" required maxlength="2"/></th>
+        </tr>
         <tr>
             <th><label for="txt_telefono">Telefono</label> </th>
             <th><input type="text" id="txt_telefono" name="txt_telefono" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onblur="validaNumericos(this.value);" required maxlength="9"/></th>

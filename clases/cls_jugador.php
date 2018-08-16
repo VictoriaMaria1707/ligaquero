@@ -19,6 +19,7 @@ class jugador
     protected $idgenero;
     protected $genero;
     protected $edad;
+    protected $idequipo;    
     
     public function __construct(){
         $this->codigo="";
@@ -37,6 +38,7 @@ class jugador
         $this->idgenero="";
         $this->genero="";
         $this->edad="";
+        $this->idequipo="";
     }
     
     public function insert($cedula, $nombre1, $nombre2, $apellido1, $apellido2, $direccion, $lugarnacimi, $parentesto, $lugarnaciparen, $telefono, $celular, $correo, $idgenero,$edad)
@@ -101,6 +103,21 @@ class jugador
         $sentencia=sprintf("delete from usuarios where idusuario='%s'",$codigo);
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
+    }
+    public function insertequi( $cedula, $nombre1, $nombre2, $apellido1, $apellido2, $direccion, $lugarnacimi, $parentesto, $lugarnaciparen, $telefono, $celular, $correo, $idgenero,$edad,$idequipo)
+    {
+        $conex= new conexion();
+        $conexion= $conex->conectar();
+         $sentencia=sprintf("Insert into jugadores (cedula, nombre1, nombre2, apellido1, apellido2, direccion, lugarnacimi, parentesto, lugarnaciparen, telefono, celular, correo, idgenero,esta,edad) values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','1','%s')",$cedula, $nombre1, $nombre2, $apellido1, $apellido2, $direccion, $lugarnacimi, $parentesto, $lugarnaciparen, $telefono, $celular, $correo, $idgenero,$edad);
+        $result= mysqli_query($conexion,$sentencia);
+                
+        $sentencia="select idjugador from jugadores where cedula=".$cedula;
+        $result1= mysqli_query($conexion,$sentencia);
+         $row=mysqli_fetch_assoc($result1);
+        
+        $sentencia=sprintf("insert into transferencias (idjugadores, idequipos, estado)values('%s','%s','1')",$row['idjugador'],$idequipo);
+        $result2= mysqli_query($conexion,$sentencia);
+        return $result2; 
     }
     
 }
