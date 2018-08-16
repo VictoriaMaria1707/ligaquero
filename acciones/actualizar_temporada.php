@@ -1,7 +1,7 @@
 <?php
 require_once("../clases/cls_temporada.php");
 $tem = new temporada();
-$tem->actualizar($_POST['txt_nomtem'],$_POST['txt_idtemporada']);
+$tem->actualizar($_POST['txt_nomtem'],$_POST['txt_idtemporada'],$_POST['txt_fechaini'],$_POST['txt_fechafin']);
 if ($tem)
     {
         
