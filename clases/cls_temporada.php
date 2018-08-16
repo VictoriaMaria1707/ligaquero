@@ -82,6 +82,7 @@ class temporada
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
     }
+    
 }
 
 ?>

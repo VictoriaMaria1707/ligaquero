@@ -55,7 +55,7 @@ class equipo
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia=sprintf("select * from equipo inner join categorias on equipo.idcategoria = categorias.idcategoria inner join series on categorias.idserie = series.idserie where idequipo ='%s'",$codigo);
+        $sentencia=sprintf("select * from equipo inner join categorias on equipo.idcategoria = categorias.idcategorias inner join series on categorias.idseries = series.idserie where idequipo ='%s'",$codigo);
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
     }
