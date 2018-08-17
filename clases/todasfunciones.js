@@ -111,6 +111,24 @@ function validarNumeroJugadores(nJugadores){
     }
 }
 
+function validaredadJugadores(nedad){
+   nJugadores = document.getElementById("txt_cate").value; 
+    
+    if (nJugadores =='sub 13 Mujer' || nJugadores == 'Sub 13 Hombre' )
+    {
+        if (nedad > 8 || nedad < 14 )
+    {
+        
+        document.getElementById("txt_edad").value = "";
+        alert ("El Jugador solo puede tener hasta 13 años y no menos de 9 años");
+    }}else{
+        if(nedad > 8 || nedad < 40)
+    {
+        document.getElementById("txt_edad").value = "";
+        alert ("El Jugador solo puede tener hasta 40 años y no menos de 9 años");
+    }}
+}
+
 function verificarcedula(ncedula)
 {
 ajax= nuevoAjax();
@@ -301,3 +319,4 @@ ajax.onreadystatechange=function() {
 ajax.send(null);
     
 }
+

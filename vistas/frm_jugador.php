@@ -78,9 +78,10 @@ if (isset($_SESSION['ROL']))
             <th><label for="txt_direccion">Direccion</label> </th>
             <th><input type="text" id="txt_direccion" name="txt_direccion" required maxlength="30"/></th>
         </tr>
+        <input type="hidden" id="txt_cate" name="txt_cate" value=""  required maxlength="2"/>
          <tr>
             <th><label for="txt_edad">Edad</label> </th>
-            <th><input type="number" id="txt_edad" name="txt_edad" required maxlength="2"/></th>
+            <th><input type="number" id="txt_edad" name="txt_edad" onchange="validaredadJugadores(this.value);" required maxlength="2"/></th>
         </tr>
 
         <tr>
