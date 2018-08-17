@@ -141,7 +141,7 @@ ajax.onreadystatechange=function() {
 	{
  	   if(ajax.readyState==4)
 		{
-     
+            
                 if(ajax.responseText>0)
             {
                 alert("cedula ya registrada");
@@ -320,3 +320,26 @@ ajax.send(null);
     
 }
 
+function verificarhora(nhora)
+{
+fecha=document.getElementById("txt_fecha").value;
+ajax= nuevoAjax();
+ajax.open("GET","../acciones/verificarhora.php?hora="+nhora+"&fecha="+fecha,true);
+ajax.onreadystatechange=function() {
+	if(ajax.readyState==1)
+  	{
+	}
+	else
+	{
+ 	   if(ajax.readyState==4)
+		{
+            if(ajax.responseText>0)
+            {
+                alert("hora ya registrada");
+               document.getElementById("txt_hora").value= "";
+            }}}}
+    
+    
+ajax.send(null);
+    
+} 

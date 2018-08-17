@@ -211,6 +211,17 @@ class calendario
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
     }
+        public function verihor($fechas,$hora)
+    {
+       $conex= new conexion();
+        $conexion= $conex->conectar();
+        $sentencia="SELECT * FROM fechas where fecha ='".$fechas."' and hora ='".$hora."'";
+
+        $result= mysqli_query($conexion,$sentencia);
+        $row=mysqli_fetch_assoc($result);
+        $nrow=mysqli_num_rows($result);
+        return $nrow; 
+    }
     
 }
 

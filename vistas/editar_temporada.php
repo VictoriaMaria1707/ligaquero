@@ -17,22 +17,17 @@
 <form id="form1" action="../acciones/actualizar_temporada.php" method="post">
     <table>
         <tbody>
-                <tr>
-                    <th></th><th><input type="hidden" id="txt_idtemporada" name="txt_idtemporada" value="<?php echo $row["idtemporada"];?>" /></th>
-                </tr>
-                <tr>
-                    <th><label for="txt_nomtem">Nombre de Temporada</label> </th>
-                    <th><input type="text" id="txt_nomtem" name="txt_nomtem" required value="<?php echo $row["nombre_temporada"];?>" /></th>
-                </tr>
+        <tr>
+            <th></th><th><input type="hidden" id="txt_idtemporada" name="txt_idtemporada" value="<?php echo $row["idtemporada"];?>" /></th>
+        </tr>
+        <tr>
+            <th><label for="txt_nomtem">Nombre de Temporada</label> </th>
+            <th><input type="text" id="txt_nomtem" name="txt_nomtem" required value="<?php echo $row["nombre_temporada"];?>" /></th>
+        </tr>
         <tr>
             <th><label for="txt_fechaini">Fecha inicio</label> </th>
             <th><input type="date" id="txt_fechaini" name="txt_fechaini" required min="<?php $hoy=date("Y-m-d"); echo $hoy;?>" value="<?php echo $row["inicio_tem"];?>" /></th>
         </tr>
-        <tr>
-            <th><label for="txt_fechafin">Fecha Fin</label> </th>
-            <th><input type="date" id="txt_fechafin" name="txt_fechafin" required min="<?php $hoy=date("Y-m-d"); echo $hoy;?>" value="<?php echo $row["fin_tem"];?>"/></th>
-        </tr>
-                
             <tr>
                 <th></th>
                 <th> <input id="btn_actualizar" type="submit" value="Actualizar"></th>

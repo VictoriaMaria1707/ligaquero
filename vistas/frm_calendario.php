@@ -47,24 +47,24 @@ if (isset($_SESSION['ROL']))
         <h4 class="modal-title" id="myModalLabel">Nuevo Partido</h4>
       </div>
       <div class="modal-body">
-        <form id="form1" action="../acciones/guardar_calendario.php" method="post">    
-        <table>
-            <tbody class="container">
-                <tr>
-                    <th><label for="txt_fecha">Fecha</label> </th>
-                    <th><input type="date" id="txt_fecha" name="txt_fecha" required min="<?php $hoy=date("Y-m-d"); echo $hoy;?>"/></th>
-                </tr>
-                
-                 <tr>
-                    <th><label for="txt_hora">Hora</label> </th>
-                    <th><input type="time" id="txt_hora" name="txt_hora" required /></th>
-                </tr>
-    <?php 
-    include_once "../clases/cls_calendario.php";
-        $cale= new calendario();
-        $resu=$cale->comboetapas(); 
-        
-    ?>
+    <form id="form1" action="../acciones/guardar_calendario.php" method="post">    
+    <table>
+        <tbody class="container">
+            <tr>
+                <th><label for="txt_fecha">Fecha</label> </th>
+                <th><input type="date" id="txt_fecha" name="txt_fecha" required min="<?php $hoy=date("Y-m-d"); echo $hoy;?>"/></th>
+            </tr>
+
+             <tr>
+                <th><label for="txt_hora">Hora</label> </th>
+                <th><input type="time" id="txt_hora" name="txt_hora" onblur="verificarhora(this.value);" required /></th>
+            </tr>
+<?php 
+include_once "../clases/cls_calendario.php";
+    $cale= new calendario();
+    $resu=$cale->comboetapas(); 
+
+?>
    
     <tr>
     <th><label for="txt_etapas">Serie</label></th>      
