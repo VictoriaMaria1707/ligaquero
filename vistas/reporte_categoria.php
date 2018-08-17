@@ -1,20 +1,19 @@
 
     <?php
-include_once('../clases/PDF.php');
-include_once("../clases/cls_temporada.php");
+include_once('../clases/pdf_categoria.php');
+include_once("../clases/cls_equipo.php");
 
+ $seleccion = new equipo();
  
-$seleccion = new temporada();
- 
-$datosReporte = $seleccion->reporte($_GET['valor']);
-//$datosReporte1 = $seleccion->reporte($_GET['valor']);
+$datosReporte = $seleccion->reportetemporada();
+//$datosReporte1 = $seleccion->consultaridserie($_GET['valor']);
 //$datosReporte2 = $seleccion->reporequipo1($_GET['valor']);
 //$datosReporte3 = $seleccion->reporequipo2($_GET['valor']);
-$pdf = new PDF();
+$pdf = new PDFcate();
  
 $pdf->AddPage();
 
-$miCabecera = array( 'Temporada', 'Serie','Categoria');
+$miCabecera = array( 'Temporada', 'Serie','Categoria','Equipos');
 
 //$miCabecera1 = array( 'Cancha','Arbitro','Marcador Equipo Uno','Marcador Equipo Dos');
 

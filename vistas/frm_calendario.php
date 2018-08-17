@@ -178,6 +178,47 @@ if (isset($_SESSION['ROL']))
     </div>
   </div>
 </div>
+
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nuevorepo"> Reporte Temporada </button>
+
+<!-- Modal -->
+<div class="modal fade" id="nuevorepo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          
+          
+        <h4 class="modal-title" id="myModalLabel">Temporadas</h4>
+      </div>
+      <div class="modal-body">
+         
+<table>
+    <tbody>
+    <tr>
+    <th><label for="txt_temporada">Temporada</label></th>      
+    <th> <select id="txt_temporada" name="txt_temporada" required>
+        <option>--Seleccione--</option>
+    <?php
+        $result=$cale->combotemporada();
+    while($row=mysqli_fetch_assoc($result)){ ?>
+            <option value="<?php echo $row['idtemporada'];?>"><?php echo $row['nombre_temporada'];?></option>
+            <?php  } ?>      
+        </select></th>
+</tr>
+    </tbody>
+</table>
+      
+          <div class="modal-footer">
+              <a href='../vistas/reporte_calendariosemana.php?valor="<?php echo $row['idtemporada'];?>"' id="btn_insertar" type="submit">Reporte</a>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>  
+            
+          </div>
+       
+           </div>
+    </div>
+  </div>
+</div>
 <?php
         }else{ 
     } }

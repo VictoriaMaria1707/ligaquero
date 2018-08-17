@@ -13,6 +13,7 @@ class equipo
     protected $idcategoria;
     protected $idjugador;
     protected $idequipo;
+    protected $idtemporada;
          
     public function __construct(){
         $this->codigo="";
@@ -25,6 +26,7 @@ class equipo
         $this->idcategoria="";
          $this->idjugador="";
         $this->idequipo="";
+        $this->idtemporada="";
     }
     
     public function insert($nombreequipo, $Numjugadores, $nombredueno,$ceduladueno, $nombreentrenador,$cedulaentrenador,$idcategoria)
@@ -72,8 +74,6 @@ class equipo
         $result= mysqli_query($conexion,$sentencia);
         return $result;  
     }
-    
-    
     
      public function actualizarpas($idequipo,$codigo)
     {
@@ -134,6 +134,19 @@ class equipo
         $row=mysqli_fetch_assoc($result);
         $nrow=mysqli_num_rows($result);
         return $nrow;  
+    }
+    
+    public function reportetemporada()
+    {
+        $conex= new conexion();
+        $conexion= $conex->conectar();
+        $sentencia="select temporadas.nombre_temporada,series.nombreserie,categorias.nombre_cate, nombreequipo from equipo
+        inner join categorias on equipo.idcategoria = categorias.idcategorias
+        inner join series on categorias.idseries = series.idserie 
+        INNER JOIN temporadas on series.idtemporadas = temporadas.idtemporada";
+        $result= mysqli_query($conexion,$sentencia);
+        return $result; 
+       
     }
     
 }
