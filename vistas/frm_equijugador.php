@@ -139,18 +139,19 @@ if (isset($_SESSION['ROL']))
             <th><label for="txt_direccion">Direccion</label> </th>
             <th><input type="text" id="txt_direccion" name="txt_direccion" required maxlength="30"/></th>
         </tr>
+        <input type="hidden" id="txt_cate" name="txt_cate" value="<?php echo $ider['nombre_cate']; ?>"  required maxlength="2"/>
          <tr>
             <th><label for="txt_edad">Edad</label> </th>
-            <th><input type="number" id="txt_edad" name="txt_edad" required maxlength="2"/></th>
+            <th><input type="number" id="txt_edad" name="txt_edad" onchange="validaredadJugadores(this.value);" required maxlength="2"/></th>
         </tr>
         <tr>
             <th><label for="txt_telefono">Telefono</label> </th>
-            <th><input type="text" id="txt_telefono" name="txt_telefono" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onblur="validaNumericos(this.value);" required maxlength="9"/></th>
+            <th><input type="number" id="txt_telefono" name="txt_telefono"  required maxlength="9"/></th>
         </tr>
 
         <tr>
             <th><label for="txt_celular">Celular</label> </th>
-            <th><input type="text" id="txt_celular" name="txt_celular" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onblur="validaNumericos(this.value);" required maxlength="10"/></th>
+            <th><input type="number" id="txt_celular" name="txt_celular"  required maxlength="10"/></th>
         </tr>
 
         <tr>
