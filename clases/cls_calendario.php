@@ -122,6 +122,14 @@ class calendario
         $result= mysqli_query($conexion,$sentencia);
         return $result;  
     }
+       public function reporte1($idtemporadas)
+    {
+       $conex= new conexion();
+        $conexion= $conex->conectar();
+        $sentencia="SELECT * from calendarios inner join fechas on fechas.idfecha = calendarios.idfechas INNER join etapas on etapas.idetapa = calendarios.idetapas INNER JOIN equipo on equipo.idequipo = calendarios.idequipo1 INNER JOIN temporadas on temporadas.idtemporada = calendarios.idtemporadas INNER JOIN canchas on canchas.idcachas = calendarios.idcanchas INNER JOIN categorias on categorias.idcategorias = equipo.idcategoria INNER JOIN series on series.idserie = categorias.idseries INNER join calearbi on calearbi.idcalendarioss = calendarios.idcalendario INNER JOIN arbitros on arbitros.idarbitro = calearbi.idarbitros WHERE idtemporadas='".$idtemporadas."'";          
+        $result= mysqli_query($conexion,$sentencia);
+        return $result;  
+    }
         
     public function consultarequipo1()
     {
