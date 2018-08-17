@@ -50,7 +50,7 @@ if (isset($_SESSION['ROL']))
             <tbody>
                 <tr>
                     <th><label for="txt_cedula">Cedula</label> </th>
-                    <th><input type="number" id="txt_cedula" name="txt_cedula" required onblur="verificarcedula(this.value);validarDocumento(this.value);" max="10" /></th>
+                    <th><input type="number" id="txt_cedula" name="txt_cedula" required onblur="verificarcedula(this.value);validarDocumento(this.value);" maxlength="10" /></th>
                 </tr>
                 
                 <tr>
@@ -70,12 +70,12 @@ if (isset($_SESSION['ROL']))
                 
                 <tr>
                     <th><label for="txt_telefono">Telefono</label> </th>
-                    <th><input type="number" id="txt_telefono" name="txt_telefono"  required max="9" /></th>
+                    <th><input type="number" id="txt_telefono" name="txt_telefono"  required maxlength="9" /></th>
                 </tr>
                 
                 <tr>
                     <th><label for="txt_celular">Celular</label> </th>
-                    <th><input type="number" id="txt_celular" name="txt_celular" required max="10" /></th>
+                    <th><input type="number" id="txt_celular" name="txt_celular" required maxlength="10" /></th>
                 </tr>
                 
                 <tr>

@@ -49,11 +49,12 @@ class jugador
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
     }
+    
      public function verificarcedulasss($cedula)
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia="select cedula from jugadores where cedula =".$cedula;
+        $sentencia="select cedula from jugadores where cedula =".$cedula." UNION select cedulas from arbitros where cedulas = ".$cedula." union select ceduladueno from equipo where ceduladueno = ".$cedula." UNION select cedulaentrenador from equipo where cedulaentrenador =".$cedula;
         $result= mysqli_query($conexion,$sentencia);    
         $row=mysqli_fetch_assoc($result);
         $nrow=mysqli_num_rows($result);
@@ -117,8 +118,13 @@ class jugador
         
         $sentencia=sprintf("insert into transferencias (idjugadores, idequipos, estado)values('%s','%s','1')",$row['idjugador'],$idequipo);
         $result2= mysqli_query($conexion,$sentencia);
-        return $result2; 
+        
+        $sentencia=sprintf("update jugadores set esta = 0 where idjugador ='%s'",$row['idjugador'],$idequipo);
+        $result3= mysqli_query($conexion,$sentencia);
+        return $result3; 
     }
+    
+
     
 }
 

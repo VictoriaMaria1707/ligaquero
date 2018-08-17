@@ -27,7 +27,7 @@ class arbitro
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia=sprintf("Insert into arbitros (cedula, nombre, apellido, direccion, telefono, celular, correo) values('%s','%s','%s','%s','%s','%s','%s')",$cedula, $nombre, $apellido, $direccion, $telefono, $celular, $correo);
+        $sentencia=sprintf("Insert into arbitros (cedulas, nombre, apellido, direccion, telefono, celular, correo) values('%s','%s','%s','%s','%s','%s','%s')",$cedula, $nombre, $apellido, $direccion, $telefono, $celular, $correo);
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
     }
@@ -50,21 +50,12 @@ class arbitro
         $row=mysqli_fetch_assoc($result);
         return $row;   
     }
-    public function verificarcedula($cedula)
-    {
-       $conex= new conexion();
-        $conexion= $conex->conectar();
-        $sentencia=sprintf("select cedula from jugadores where cedula ='%s'",$cedula);
-        $result= mysqli_query($conexion,$sentencia);
-        $row=mysqli_fetch_assoc($result);
-        return $row;   
-    }
-     
+  
     public function actualizar($cedula, $nombre, $apellido, $direccion, $telefono, $celular, $correo, $codigo)
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia=sprintf("update arbitros set cedula='%s', nombre='%s', apellido='%s', direccion='%s', telefono='%s', celular='%s', correo='%s' where idarbitro='%s'",$cedula, $nombre, $apellido, $direccion, $telefono, $celular, $correo, $codigo);
+        $sentencia=sprintf("update arbitros set cedulas='%s', nombre='%s', apellido='%s', direccion='%s', telefono='%s', celular='%s', correo='%s' where idarbitro='%s'",$cedula, $nombre, $apellido, $direccion, $telefono, $celular, $correo, $codigo);
         $result= mysqli_query($conexion,$sentencia);
         return $result;  
     }

@@ -22,7 +22,7 @@
                 </tr>
                 <tr>
                     <th><label for="txt_cedula">Cedula</label> </th>
-                    <th><input type="text" id="txt_cedula" name="txt_cedula" required value="<?php echo $row["cedula"];?>" /></th>
+                    <th><input type="text" id="txt_cedula" name="txt_cedula" required value="<?php echo $row["cedulas"];?>" /></th>
                 </tr>
                 
                 <tr>

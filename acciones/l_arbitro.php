@@ -38,7 +38,7 @@ while($row=mysqli_fetch_assoc($result)){
 echo "<tr>
             <td>".$row["nombre"]."</td>
             <td>".$row["apellido"]."</td>
-            <td>".$row["cedula"]."</td>
+            <td>".$row["cedulas"]."</td>
             <td>".$row["direccion"]."</td>
             <td>".$row["telefono"]."</td>
             <td>".$row["celular"]."</td>

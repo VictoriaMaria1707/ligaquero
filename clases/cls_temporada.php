@@ -55,11 +55,11 @@ class temporada
     }
         
      
-    public function actualizar($idtemporada, $codigo)
+    public function actualizar($idtemporada, $fechaini, $fechafin ,$codigo)
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia=sprintf("update temporadas set nombre_temporada='%s' where idtemporada='%s'",$idtemporada, $codigo);
+        $sentencia=sprintf("update temporadas set nombre_temporada='%s', inicio_tem ='%s', fin_tem='%s' where idtemporada='%s'" ,$idtemporada, $fechaini, $fechafin, $codigo);
         $result= mysqli_query($conexion,$sentencia);
         return $result;  
     }
