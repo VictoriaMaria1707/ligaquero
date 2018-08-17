@@ -60,10 +60,18 @@ if (isset($_SESSION['ROL']))
             <th><label for="txt_nomdue">Nombre del presidente del equipo</label> </th>
             <th><input type="text" id="txt_nomdue" name="txt_nomdue" required maxlength="30"/></th>
         </tr>
+         <tr>
+        <th><label for="txt_ceduladueno">Cedula del presidente</label> </th>
+            <th><input type="numeric" id="txt_ceduladueno" name="txt_ceduladueno" required onblur="verificarcedula(this.value);validarDocumento(this.value);" max="10"/></th>
+        </tr>
 
         <tr>
             <th><label for="txt_nomentre">Nombre del entrenador</label> </th>
             <th><input type="text" id="txt_nomentre" name="txt_nomentre" required maxlength="30"/></th>
+        </tr>
+        <tr>
+        <th><label for="txt_cedulaentre">Cedula del entrenador</label> </th>
+            <th><input type="numeric" id="txt_cedulaentre" name="txt_cedulaentre" required onblur="verificarcedula(this.value);validarDocumento(this.value);" max="10"/></th>
         </tr>
     <?php 
         include_once "../clases/clase_categorias.php";

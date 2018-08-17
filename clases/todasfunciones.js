@@ -278,3 +278,26 @@ function validarDocumento(numero) {
       return true;   
    }            
 
+function verifiEntrenador(nomentre)
+{
+    
+  ajax= nuevoAjax();
+ajax.open("GET","../acciones/entrenador.php?valor="+nomentre,true);
+   
+ajax.onreadystatechange=function() {
+	if(ajax.readyState==1)
+  	{
+	}
+	else
+	{
+ 	   if(ajax.readyState==4)
+		{
+          //  alert('siiiiiiiiiii');
+          if(ajax.responseText > 0)
+            {
+                alert("El nombre del entrenador ya existe");
+                document.getElementById("txt_nomentre").value="";
+            }}}}
+ajax.send(null);
+    
+}

@@ -12,7 +12,9 @@ echo"<table class='table'>
             <th>Nombre del equipo</th>
             <th>Numero de jugadores</th>
             <th>Nombre del presidente</th>
+            <th>Cedula del presidente</th>
             <th>Nombre del entrenador</th>
+            <th>Cedula del entrenador</th>
             <th>Categoria</th>";
 if(!isset($_SESSION)) 
     { 
@@ -39,7 +41,9 @@ echo "<tr>
             <td>".$row["nombreequipo"]."</td>
             <td>".$row["Numjugadores"]."</td>
             <td>".$row["nombredueno"]."</td>
+            <td>".$row["ceduladueno"]."</td>
             <td>".$row["nombreentrenador"]."</td>
+            <td>".$row["cedulaentrenador"]."</td>
             <td>".$row["nombre_cate"]."</td>";
     
 if (isset($_SESSION['ROL']))

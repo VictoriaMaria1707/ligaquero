@@ -7,7 +7,9 @@ class equipo
     protected $nombreequipo;
     protected $Numjugadores;
     protected $nombredueno;
+    protected $ceduladueno;
     protected $nombreentrenador;
+    protected $cedulaentrenador;
     protected $idcategoria;
     protected $idjugador;
     protected $idequipo;
@@ -17,17 +19,19 @@ class equipo
         $this->nombreequipo="";
         $this->Numjugador="";
         $this->nombredueno="";
+        $this->ceduladueno="";
         $this->nombreentrenador="";
+        $this->cedulaentrenador="";
         $this->idcategoria="";
          $this->idjugador="";
         $this->idequipo="";
     }
     
-    public function insert($nombreequipo, $Numjugadores, $nombredueno, $nombreentrenador, $idcategoria)
+    public function insert($nombreequipo, $Numjugadores, $nombredueno,$ceduladueno, $nombreentrenador,$cedulaentrenador,$idcategoria)
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia=sprintf("Insert into equipo (nombreequipo, Numjugadores, nombredueno, nombreentrenador, idcategoria) values('%s','%s','%s','%s','%s')",$nombreequipo, $Numjugadores, $nombredueno, $nombreentrenador, $idcategoria);
+        $sentencia=sprintf("Insert into equipo (nombreequipo, Numjugadores, nombredueno, ceduladueno, nombreentrenador, cedulaentrenador, idcategoria) values('%s','%s','%s','%s','%s','%s','%s')",$nombreequipo, $Numjugadores, $nombredueno, $ceduladueno, $nombreentrenador, $cedulaentrenador, $idcategoria);
         
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
@@ -60,11 +64,11 @@ class equipo
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
     }
-    public function actualizar($nombreequipo, $Numjugadores, $nombredueno, $nombreentrenador, $idcategoria, $codigo)
+    public function actualizar($nombreequipo, $Numjugadores, $nombredueno, $ceduladueno, $nombreentrenador, $cedulaentrenador, $idcategoria, $codigo)
     {
        $conex= new conexion();
         $conexion= $conex->conectar();
-        $sentencia=sprintf("update equipo set nombreequipo='%s', Numjugadores='%s', nombredueno='%s', nombreentrenador='%s', idcategoria='%s' where idequipo='%s'",$nombreequipo, $Numjugadores, $nombredueno, $nombreentrenador, $idcategoria, $codigo);
+        $sentencia=sprintf("update equipo set nombreequipo='%s', Numjugadores='%s', nombredueno='%s',ceduladueno='%s', nombreentrenador='%s', cedulaentrenador='%s',idcategoria='%s' where idequipo='%s'",$nombreequipo, $Numjugadores, $nombredueno, $ceduladueno, $nombreentrenador, $cedulaentrenador, $idcategoria, $codigo);
         $result= mysqli_query($conexion,$sentencia);
         return $result;  
     }
@@ -120,6 +124,16 @@ class equipo
         $sentencia=sprintf("delete from equipo where idequipo='%s'",$codigo);
         $result= mysqli_query($conexion,$sentencia);
         return $result;   
+    }
+      public function verifrentrenador($nombreentrenador)
+    {
+       $conex= new conexion();
+        $conexion= $conex->conectar();
+        $sentencia="SELECT nombreentrenador FROM equipo WHERE nombreentrenador =".$nombreentrenador;
+        $result= mysqli_query($conexion,$sentencia);    
+        $row=mysqli_fetch_assoc($result);
+        $nrow=mysqli_num_rows($result);
+        return $nrow;  
     }
     
 }
